@@ -1,4 +1,13 @@
-from src.modules.m_main.ex import init
+from extractor.src.modules.m_main.execute import init
+import sys
+
+
+
+
+sys.dont_write_bytecode = True
+sys.py_cache_prefix = 'etc/cache'
+
+
 
 def main():
     init()

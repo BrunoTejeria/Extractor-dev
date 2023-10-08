@@ -1,4 +1,4 @@
-from src.modules.m_file.file import File
+from ..m_file import File
 from tqdm import tqdm
 
 class Check(File):
@@ -18,13 +18,10 @@ class Check(File):
                     if self.url in line:
                         try:
                             result = line[line.index(' ') + 1:]
-                            File.write(content=result, mode='a')
                         except ValueError:
                             post_result = line.find(':', line.find(':') + 1)
                             result = line[post_result + 1:]
-                            File.write(self, content=result, mode='a')
-
-
+                        File.write(self, content=result, mode='a')
                         result_lines.append(result)
 
         return result_lines

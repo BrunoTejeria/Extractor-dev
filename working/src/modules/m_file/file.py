@@ -1,4 +1,5 @@
 class File:
+    
     def __init__(self,file_search, file_result):
         self.file_read = file_search
         self.file_write = file_result
