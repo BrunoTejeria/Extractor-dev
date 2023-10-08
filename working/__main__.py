@@ -1,6 +1,7 @@
+from src.modules.m_main.ex import init
+
 def main():
-    file = File(file=text_file)
-    file.clear()
+    init()
 
 if __name__ == '__main__':
     main()
