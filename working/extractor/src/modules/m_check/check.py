@@ -16,13 +16,25 @@ class Check(File):
                 progress_bar.update(1)
                 if line != '\n':
                     if self.url in line:
+                        result = ''
                         try:
-                            result = line[line.index(' ') + 1:]
-                        except ValueError:
                             post_result = line.find(':', line.find(':') + 1)
-                            result = line[post_result + 1:]
-                        File.write(self, content=result, mode='a')
-                        result_lines.append(result)
+                            if self.url in line[:post_result]:
+                                try:
+                                    result = line[line.index(' ') + 1:]
+                                except ValueError:
+                                    post_result = line.find(':', line.find(':') + 1)
+                                    result = line[post_result + 1:]
+
+                        except ValueError:
+                                try:
+                                    result = line[line.index(' ') + 1:]
+                                except ValueError:
+                                    pass
+
+                        if result != '':
+                            File.write(self, content=result, mode='a')
+                            result_lines.append(result)
 
         return result_lines
 
