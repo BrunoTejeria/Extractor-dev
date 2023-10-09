@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# Directorio en dev
 cd working
 
 # Ejecutar app de dev
