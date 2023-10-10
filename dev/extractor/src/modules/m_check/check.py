@@ -6,6 +6,7 @@ class Check(File):
         super().__init__(file_search, file_result)
         super().read()
         self.url = url
+        self.file_result = file_result
 
 
     def process_lines(self):
@@ -33,8 +34,12 @@ class Check(File):
                                     pass
 
                         if result != '':
-                            File.write(self, content=result, mode='a')
                             result_lines.append(result)
+
+            with open(self.file_result, 'a',) as file:
+                for line in result_lines:
+                    file.write(line)
+                file.close()
 
         return result_lines
 
