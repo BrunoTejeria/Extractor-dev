@@ -17,6 +17,5 @@ class Json:
         with open(self.file_path, mode='w') as file:
             json.dump(data, file, indent=4)
 
-    def delete(self):
-        if os.path.exists(self.file_path):
-            os.remove(self.file_path)
+    def delete(self, data):
+        pass

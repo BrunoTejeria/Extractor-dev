@@ -1,12 +1,27 @@
 from ..m_file.file import File
+from ..m_config.config import Config
 from tqdm import tqdm
+# Ruta del archivo de configuracion
+config_path = 'extractor/etc/config.json'
 
-class Check(File):
-    def __init__(self, file_search, file_result, url):
-        super().__init__(file_search, file_result)
-        super().read()
-        self.url = url
-        self.file_result = file_result
+class ConfigValues(Config):
+    def __init__(self):
+        config_json = Config(config_path)
+        config = config_json.read()
+        self.url =  config[1]['url']
+        self.file_search =  config[0]['textFile']['textSearch']
+        self.file_result = config[0]['textFile']['textResult']
+
+
+class Check(File, ConfigValues):
+    def __init__(self):
+
+        # Heredar de clase ConfigValuesd
+        ConfigValues.__init__(self)
+
+        # Heredar de clase File
+        File.__init__(self, self.file_search, self.file_result)
+        File.read(self)
 
 
     def process_lines(self):
@@ -26,20 +41,21 @@ class Check(File):
                                 except ValueError:
                                     post_result = line.find(':', line.find(':') + 1)
                                     result = line[post_result + 1:]
-
                         except ValueError:
                                 try:
                                     result = line[line.index(' ') + 1:]
                                 except ValueError:
                                     pass
-
                         if result != '':
                             result_lines.append(result)
 
-            with open(self.file_result, 'a',) as file:
+            with open(self.file_result, 'a',) as file_:
                 for line in result_lines:
-                    file.write(line)
-                file.close()
+                    try:
+                        file_.write(line)
+                    except:
+                        pass
+
 
         return result_lines
 

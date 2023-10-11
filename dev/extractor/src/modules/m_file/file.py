@@ -10,10 +10,13 @@ class File:
             lines = file.readlines()
             file.close()
         self.lines = lines
+
+    '''
     def write(self, content, mode='w'):
         with open(file=self.file_write, mode=mode, encoding='utf-8') as file:
             file.write(content)
             file.close()
+    '''
 
     def count(self):
         total_lines = sum(1 for line in self.lines)

@@ -1,10 +1,8 @@
 [
     {
         "textFile": {
-            "text1":"",
-            "text2":"",
-            "text3":"",
-            "text4":""
+            "textSearch":"extractor/etc/data/raw_data/text.txt",
+            "textResult":"extractor/etc/data/processed_data/result.txt"
         }
     },
     {
