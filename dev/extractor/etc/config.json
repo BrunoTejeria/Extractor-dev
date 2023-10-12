@@ -11,34 +11,11 @@
                 "web":"www.starplus.com",
                 "andorid":"com.disney.starplus"
             },
-            "netflix": {
-                "web":"netflix.com",
-                "andorid":"com.netflix.mediaclient"
-            },
-            "hbo": {
-                "web":"play.hbomax.com",
-                "andorid":"com.hbo.android.app"
-            },
-            "snapChat": {
-                "web":"snapchat.com",
-                "andorid":"com.snapchat.android"
-            },
-            "twitch": {
-                "web":"twitch.tv",
-                "andorid":"tv.twitch.android.app"
-            },
-            "aws": {
-                "web":"aws.amazon.com",
-                "android":"aws"
-            },
             "disney": {
                 "web":"disneyplus.com",
                 "android":"com.disney.disneyplus"
-            },
-            "tradingView": {
-                "web":"tradingview.com",
-                "android":"tradingview.tradingviewapp"
             }
+
 
         }
     }
