@@ -1,0 +1,11 @@
+[
+    {
+        "textFile": {
+            "textSearch":"extractor/etc/data/raw_data/text.txt",
+            "textResult":"extractor/etc/data/processed_data/result.txt"
+        }
+    },
+    {
+        "url":"github"
+    }
+]
