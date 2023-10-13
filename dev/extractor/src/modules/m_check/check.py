@@ -1,6 +1,7 @@
 from ..m_file.file import File
 from ..m_config.config import Config
 from tqdm import tqdm
+
 # Ruta del archivo de configuracion
 config_path = 'extractor/etc/config.json'
 
@@ -13,11 +14,13 @@ class ConfigValues(Config):
         self.file_result = config[0]['textFile']['textResult']
 
 
-class Check(File, ConfigValues):
+class Check(File, Config):
     def __init__(self):
-
-        # Heredar de clase ConfigValuesd
-        ConfigValues.__init__(self)
+        config_json = Config(config_path)
+        config = config_json.read()
+        self.url =  config[1]['url']
+        self.file_search =  config[0]['textFile']['textSearch']
+        self.file_result = config[0]['textFile']['textResult']
 
         # Heredar de clase File
         File.__init__(self, self.file_search, self.file_result)

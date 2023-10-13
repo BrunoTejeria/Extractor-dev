@@ -16,24 +16,12 @@ text = \
 ########## ###    ###     ###     ###    ### ###     ###  ########      ###      ########  ###    ### 
 '''
 
-from curses import *
 
-def main(stdscr):
-    # Clear screen
-    stdscr.clear()
 
-    # This raises ZeroDivisionError when i == 10.
-    for i in range(0, 11):
-        v = i-10
-        stdscr.addstr(i, 0, '10 divided by {} is {}'.format(v, 10/v))
 
-    stdscr.refresh()
-    stdscr.getkey()
-
-wrapper(main)
-"""def init():
+def init():
     print(f'[green]{text}[/green]')
-    # Crear una instancia de la clase Table
+    '''# Crear una instancia de la clase Table
     table = Table()
 
     # Definir las columnas de la tabla
@@ -48,11 +36,10 @@ wrapper(main)
 
     # Crear una instancia de la clase Console para mostrar la tabla
     console = Console()
-    console.print(table)
-    curses.wrapper(main)
+    console.print(table)'''
 
 
 
-    '''check_obj = Check()
-    processed_lines = check_obj.process_lines()'''"""
+    check_obj = Check()
+    processed_lines = check_obj.process_lines()
     

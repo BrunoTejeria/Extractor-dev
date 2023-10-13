@@ -18,6 +18,15 @@ class File:
             file.close()
     '''
 
+    def reset(self):
+        with open \
+        (
+            file=self.file_write,
+            mode='w',
+            encoding='utf-8'
+        ) as file:
+            file.close()
+
     def count(self):
         total_lines = sum(1 for line in self.lines)
         self.count = total_lines
