@@ -1,12 +1,22 @@
-# Importación de módulos y bibliotecas necesarios
-from ..m_file.file import File
-from ..m_config.config import Config
-from tqdm import tqdm
-import json
+# Importación de módulos necesarios
+from ..m_file.file import *
+from ..m_config.config import *
+
+# Importar bibliotecas necesarias
+try:
+    from rich.console import Console
+    from tqdm import tqdm
+    import json
+except ImportError:
+    pass
+
 
 # Ruta del archivo de configuración
 config_path = 'extractor/etc/config.json'
 result_path = 'extractor/etc/data/processed_data/'
+
+# Definir consola
+console = Console()
 
 # Definición de la clase Check, que hereda de las clases File y Config
 class Check(File, Config):
@@ -14,7 +24,7 @@ class Check(File, Config):
         # Crear una instancia de la clase Config para leer la configuración
         config_json_class = Config(config_path)
         config = config_json_class.read()
-        
+
         # Obtener rutas de archivos desde la configuración
         self.file_search =  config[0]['textFile']['textSearch']
         self.file_result = config[0]['textFile']['textResult']
@@ -34,7 +44,11 @@ class Check(File, Config):
         # Iterar a través de las URL en la configuración
         for site in self.url[1]['url']:
             file_result = self.file_result
-            print(site)
+            # imprimir en que se esta buscando
+            console.print \
+            (f'''
+            [green]{site}[/green]
+            ''')
 
             # Crear una barra de progreso con tqdm
             with tqdm(total=len(file_lines * 2), desc="Procesando", unit="línea", colour='green') as progress_bar:
@@ -64,13 +78,11 @@ class Check(File, Config):
                                     pass
 
                             # Comprobar si se encontró un resultado que no sea UNKNOWN de nombre y si resultado no esta en la lista con los resultado
-                            if result != '' and not 'UNKNOWN' in result and not result in result_lines and not result in result_lines:
-                                if 'netflix' in url or 'netflix' in url or 'hbo' in url or 'starplus' in url:
-                                    # Comprobar si el resultado contiene '@' o es un número
+                            if result and 'UNKNOWN' not in result and result not in result_lines:
+                                if any(platform in url for platform in ['netflix', 'hbo', 'starplus']):
                                     if '@' in result[:result.find(':')] or result[:result.find(':')].isdigit():
                                         result_lines.append(result)
                                 else:
-
                                     result_lines.append(result)
 
                     # Escribir los resultados en un archivo
