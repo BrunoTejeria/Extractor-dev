@@ -32,7 +32,7 @@ class Check(File, Config):
         # Llamar a los constructores de las clases File y Config
         File.__init__(self, self.file_search, self.file_result)
         File.read(self)
-        self.url = config
+        self.urls = config
 
 
     # Método para procesar líneas del archivo
@@ -43,7 +43,7 @@ class Check(File, Config):
         File.reset(self)
 
         # Iterar a través de las URL en la configuración
-        for site in self.url[1]['url']:
+        for site in self.urls[1]['url']:
             file_result = self.file_result
             # imprimir en que se esta buscando
             console.print \
@@ -54,8 +54,8 @@ class Check(File, Config):
             with tqdm(total=len(file_lines * 2), desc="Procesando", unit="línea", colour='green') as progress_bar:
                 result_lines = []
                 # Iterar a través de las URL y búsquedas en la configuración
-                for search in self.url[1]['url'][site]:
-                    url = self.url[1]['url'][site][search]
+                for search in self.urls[1]['url'][site]:
+                    url = self.urls[1]['url'][site][search]
 
                     # Iterar a través de las líneas del archivo de búsqueda
                     for line in file_lines:
