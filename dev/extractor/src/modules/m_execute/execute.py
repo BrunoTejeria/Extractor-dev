@@ -47,24 +47,8 @@ table = \
 
 '''
 
-# Función para manejar la selección del usuario
-def option_selected_execute(selected_option):
-    if selected_option == "1":
-        console.print("Has seleccionado 'Buscar'", style="bold green")
-        a = search.process_lines()
-        console.clear
 
-    elif selected_option == "2":
-        console.print("Has seleccionado 'Configuración'", style="bold green")
-		
-    elif selected_option == "3":
-        console.print("Has seleccionado 'Opción 3'", style="bold green")
 
-    elif selected_option == "0":
-        console.print("Saliendo...", style="bold red")
-
-    else:
-        console.print("Opción no válida.", style="bold red")
 
 
 # Funcion para ejecutar el programa
@@ -72,8 +56,22 @@ def main():
     print(f'[green]{text}[/green]')
     while True:
         console.print(table)
-        option_selected = Prompt.ask('Selecciona una opción (ingresa 0 para salir):', choices=['0','1','2','3'])
-        option_selected_execute(option_selected)
+        selected_option = Prompt.ask('Selecciona una opción (ingresa 0 para salir):', choices=['0','1','2','3'])
 
-    check_obj = Check()
-    processed_lines = check_obj.process_lines()
+        if selected_option == "1":
+            console.print("Has seleccionado 'Buscar'", style="bold green")
+            a = search.process_lines()
+            console.clear
+
+        elif selected_option == "2":
+            console.print("Has seleccionado 'Configuración'", style="bold green")
+
+        elif selected_option == "3":
+            console.print("Has seleccionado 'Opción 3'", style="bold green")
+
+        elif selected_option == "0":
+            console.print("Saliendo...", style="bold red")
+            break
+        else:
+            console.print("Opción no válida.", style="bold red")
+

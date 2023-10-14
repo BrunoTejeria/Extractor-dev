@@ -43,54 +43,56 @@ class Check(File, Config):
         File.reset(self)
 
         # Iterar a través de las URL en la configuración
-        for site in self.urls[1]['url']:
+        for site in self.urls[1]['site']:
             file_result = self.file_result
             # imprimir en que se esta buscando
             console.print \
             (f'''
             [green]{site}[/green]
             ''')
+
             # Crear una barra de progreso con tqdm
-            with tqdm(total=len(file_lines * 2), desc="Procesando", unit="línea", colour='green') as progress_bar:
+            with tqdm(total=len(file_lines * len(self.urls[1]['site'][site])), desc="Procesando", unit="línea", colour='green') as progress_bar:
                 result_lines = []
                 # Iterar a través de las URL y búsquedas en la configuración
-                for search in self.urls[1]['url'][site]:
-                    url = self.urls[1]['url'][site][search]
+                for search in self.urls[1]['site'][site]:
+                    url = self.urls[1]['site'][site][search]
 
                     # Iterar a través de las líneas del archivo de búsqueda
                     for line in file_lines:
                         progress_bar.update(1)
 
                         # Comprobar si la URL está en la línea
-                        if url in line and line != '\n':
-                            result = ''
-                            try:
-                                post_result = line.find(':', line.find(':') + 1)
-                                if url in line[:post_result]:
+                        if url in line:
+                            if line != '' and line != '\n':
+                                result = ''
+                                try:
+                                    post_result = line.find(':', line.find(':') + 1)
+                                    if url in line[:post_result]:
+                                        try:
+                                            result = line[line.index(' ') + 1:]
+                                        except ValueError:
+                                            result = line[post_result + 1:]
+                                except ValueError:
                                     try:
                                         result = line[line.index(' ') + 1:]
                                     except ValueError:
-                                        result = line[post_result + 1:]
-                            except ValueError:
-                                try:
-                                    result = line[line.index(' ') + 1:]
-                                except ValueError:
-                                    continue
-
-                            # Comprobar si se encontró un resultado que no sea UNKNOWN de nombre y si resultado no esta en la lista con los resultado
-                            if not 'UNKNOWN' in result and not result in result_lines:
-                                if 'netflix' in url or 'disney' in url or 'starplus' in url or 'hbo' in url:
-                                    # Comprobar si el resultado contiene '@' o es un número
-                                    try:
-                                        if not '@' in result[:result.find(':')]:
-                                            continue
-                                        else:
-                                            result_lines.append(result)
-                                    except:
                                         continue
-                                else:
 
-                                    result_lines.append(result)
+                                # Comprobar si se encontró un resultado que no sea UNKNOWN de nombre y si resultado no esta en la lista con los resultado
+                                if not 'UNKNOWN' in result and not result in result_lines:
+                                    if 'netflix' in url or 'disney' in url or 'starplus' in url or 'hbo' in url:
+                                        # Comprobar si el resultado contiene '@' o es un número
+                                        try:
+                                            if not '@' in result[:result.find(':')]:
+                                                continue
+                                            else:
+                                                result_lines.append(result)
+                                        except:
+                                            continue
+                                    else:
+
+                                        result_lines.append(result)
 
                     # Escribir los resultados en un archivo
                     with open(f'{result_path}result_{site}.txt', 'a',) as file_:
