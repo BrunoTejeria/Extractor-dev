@@ -6,7 +6,7 @@
         }
     },
     {
-        "url": {
+        "site": {
             "starPlus": {
                 "web":"www.starplus.com",
                 "andorid":"com.disney.starplus"
@@ -23,7 +23,7 @@
                 "web":"netflix.com",
                 "android":"com.netflix.mediaclient"
             },
-            "hbo": {
+            "hboMax": {
                 "web":"play.hbomax.com",
                 "android":"com.hbo.android.app"
             },
@@ -35,23 +35,70 @@
                 "web":"twitch.tv",
                 "android":"tv.twitch.android.app"
             },
-            "aws": {
-                "web":"aws.amazon.com",
-                "android":"aws"
-            },
             "roblox": {
                 "web":"roblox.com",
                 "android":"com.roblox.client"
             },
             "crunchyroll": {
                 "web":"crunchyroll.com",
-                "android":"com.crunchyroll.crunchyroid"
+                "android":"com.crunchyroll"
             },
             "directv": {
-                "url":"directvgo.com",
+                "web":"directvgo.com",
                 "android":"la.directvapp"
+            },
+            "amazon": {
+                "web":"amazon.com",
+                "android":"com.facebook"
+            },
+            "aws": {
+                "web":"aws.amazon.com",
+                "android":"aws"
+            },
+            "facebook": {
+                "web":"facebook.com",
+                "android":"com.facebook.katana"
+            },
+            "messenger": {
+                "android":"com.facebook.orca"
+            },
+            "steam": {
+                "web":"steampowered.com",
+                "webCommunity":"steamcommunity.com"
+            },
+            "tunnelBear": {
+                "web":"tunnelbear.com"
+            },
+            "binomo":{
+                "web":"binomo.com"
+            },
+            "iqOption": {
+                "web":"iqoption.com",
+                "web2":"iqoption.co",
+                "android":"iqoption.com"
+            },
+            "capital.com": {
+                "web":"https://capital.com"
+            },
+            "google": {
+                "web":"google.com",
+                "android":"com.google.android"
+            },
+            "spotiy": {
+                "web":"spotify.com",
+                "android":"com.spotify.music",
+                "androidLite":"com.spotify.lite"
+            },
+            "dazn": {
+                "web":"dazn.com",
+                "andorid":"com.dazn"
+            },
+            "microsoft": {
+                "web1":"microsoft.com",
+                "web2":"live.com",
+                "web3":"microsoftonline.com",
+                "android":"com.microsoft"
             }
-
 
         }
     }
