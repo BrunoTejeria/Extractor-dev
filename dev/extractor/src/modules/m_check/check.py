@@ -76,19 +76,18 @@ class Check(File, Config):
                                     result = line[line.index(' ') + 1:]
                                 except ValueError:
                                     continue
-                            print(line)
 
                             # Comprobar si se encontró un resultado que no sea UNKNOWN de nombre y si resultado no esta en la lista con los resultado
-                            if result != '' and not 'UNKNOWN' in result and not result in result_lines and not result in result_lines:
-                                if 'netflix' in url or 'netflix' in url or 'hbo' in url or 'starplus' in url or 'disney' in url:
+                            if not 'UNKNOWN' in result and not result in result_lines:
+                                if 'netflix' in url or 'disney' in url or 'starplus' in url or 'hbo' in url:
                                     # Comprobar si el resultado contiene '@' o es un número
                                     try:
-                                        if not '@' in result[:result.find(':')] and not result[:result.find(':')].isdigit():
+                                        if not '@' in result[:result.find(':')]:
                                             continue
                                         else:
                                             result_lines.append(result)
                                     except:
-                                        pass
+                                        continue
                                 else:
 
                                     result_lines.append(result)
@@ -99,7 +98,7 @@ class Check(File, Config):
                             try:
                                 file_.write(line)
                             except:
-                                pass
+                                continue
 
         # Devolver la lista de resultados
         return result_lines
