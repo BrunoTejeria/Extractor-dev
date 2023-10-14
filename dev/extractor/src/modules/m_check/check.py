@@ -1,3 +1,4 @@
+
 # Importación de módulos necesarios
 from ..m_file.file import *
 from ..m_config.config import *
@@ -10,8 +11,7 @@ try:
 except ImportError:
     pass
 
-
-# Ruta del archivo de configuración
+# Ruta del archivo de configuracion
 config_path = 'extractor/etc/config.json'
 result_path = 'extractor/etc/data/processed_data/'
 
@@ -34,6 +34,7 @@ class Check(File, Config):
         File.read(self)
         self.url = config
 
+
     # Método para procesar líneas del archivo
     def process_lines(self):
         file_lines = self.lines
@@ -49,7 +50,6 @@ class Check(File, Config):
             (f'''
             [green]{site}[/green]
             ''')
-
             # Crear una barra de progreso con tqdm
             with tqdm(total=len(file_lines * 2), desc="Procesando", unit="línea", colour='green') as progress_bar:
                 result_lines = []

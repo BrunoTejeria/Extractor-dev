@@ -37,7 +37,6 @@ text = \
 ########## ###    ###     ###     ###    ### ###     ###  ########      ###      ########  ###    ### 
 '''
 
-
 # Tabla con las opciones
 table = \
 '''
@@ -57,7 +56,7 @@ def option_selected_execute(selected_option):
 
     elif selected_option == "2":
         console.print("Has seleccionado 'Configuración'", style="bold green")
-
+		
     elif selected_option == "3":
         console.print("Has seleccionado 'Opción 3'", style="bold green")
 
@@ -67,6 +66,7 @@ def option_selected_execute(selected_option):
     else:
         console.print("Opción no válida.", style="bold red")
 
+
 # Funcion para ejecutar el programa
 def main():
     print(f'[green]{text}[/green]')
@@ -74,3 +74,6 @@ def main():
         console.print(table)
         option_selected = Prompt.ask('Selecciona una opción (ingresa 0 para salir):', choices=['0','1','2','3'])
         option_selected_execute(option_selected)
+
+    check_obj = Check()
+    processed_lines = check_obj.process_lines()
