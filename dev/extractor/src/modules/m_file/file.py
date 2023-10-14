@@ -11,12 +11,26 @@ class File:
             file.close()
         self.lines = lines
 
-    '''
+    def reset(self):
+        with open \
+        (
+            file=self.file_write,
+            mode='w',
+            encoding='utf-8'
+        ) as file:
+            file.close()
+
+
     def write(self, content, mode='w'):
-        with open(file=self.file_write, mode=mode, encoding='utf-8') as file:
+        with open \
+        (
+            file=self.file_write,
+            mode=mode,
+            encoding='utf-8'
+        ) as file:
             file.write(content)
             file.close()
-    '''
+
 
     def reset(self):
         with open \
@@ -33,7 +47,11 @@ class File:
 
     def clear(self, file_result):
         try:
-            with open(file, 'w') as f:
+            with open \
+            (
+                file,
+                'w'
+            ) as f:
                 # The file is reset (cleared)
                 pass
             return True

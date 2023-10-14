@@ -1,12 +1,9 @@
-from src.modules.m_execute.execute import init
-try:
-    import rich
-except ImportError:
-    print('import error')
 
 
-def main():
-    init()
+from src.modules.m_execute.execute import main
+from src.modules.m_config.config import Config
+
+
 
 if __name__ == '__main__':
     main()

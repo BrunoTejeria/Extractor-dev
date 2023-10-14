@@ -6,6 +6,53 @@
         }
     },
     {
-        "url":"roblox"
+        "url": {
+            "starPlus": {
+                "web":"www.starplus.com",
+                "andorid":"com.disney.starplus"
+            },
+            "disney": {
+                "web":"disneyplus.com",
+                "android":"com.disney.disneyplus"
+            },
+            "tradingView": {
+                "web":"tradingview.com",
+                "android":"tradingview.tradingviewapp"
+            },
+            "netflix": {
+                "web":"netflix.com",
+                "android":"com.netflix.mediaclient"
+            },
+            "hbo": {
+                "web":"play.hbomax.com",
+                "android":"com.hbo.android.app"
+            },
+            "snapChat": {
+                "web":"snapchat.com",
+                "android":"com.snapchat.android"
+            },
+            "twitch": {
+                "web":"twitch.tv",
+                "android":"tv.twitch.android.app"
+            },
+            "aws": {
+                "web":"aws.amazon.com",
+                "android":"aws"
+            },
+            "roblox": {
+                "web":"roblox.com",
+                "android":"com.roblox.client"
+            },
+            "crunchyroll": {
+                "web":"crunchyroll.com",
+                "android":"com.crunchyroll.crunchyroid"
+            },
+            "directv": {
+                "url":"directvgo.com",
+                "android":"la.directvapp"
+            }
+
+
+        }
     }
 ]

@@ -11,5 +11,9 @@ class Config(Json):
         super().edit(data)
         super().delete(data)
         """
+    def edit():
+        pass
+    def add_value():
+        pass
 
 
