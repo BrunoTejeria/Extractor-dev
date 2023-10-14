@@ -75,14 +75,22 @@ class Check(File, Config):
                                 try:
                                     result = line[line.index(' ') + 1:]
                                 except ValueError:
-                                    pass
+                                    continue
+                            print(line)
 
                             # Comprobar si se encontró un resultado que no sea UNKNOWN de nombre y si resultado no esta en la lista con los resultado
-                            if result and 'UNKNOWN' not in result and result not in result_lines:
-                                if any(platform in url for platform in ['netflix', 'hbo', 'starplus']):
-                                    if '@' in result[:result.find(':')] or result[:result.find(':')].isdigit():
-                                        result_lines.append(result)
+                            if result != '' and not 'UNKNOWN' in result and not result in result_lines and not result in result_lines:
+                                if 'netflix' in url or 'netflix' in url or 'hbo' in url or 'starplus' in url or 'disney' in url:
+                                    # Comprobar si el resultado contiene '@' o es un número
+                                    try:
+                                        if not '@' in result[:result.find(':')] and not result[:result.find(':')].isdigit():
+                                            continue
+                                        else:
+                                            result_lines.append(result)
+                                    except:
+                                        pass
                                 else:
+
                                     result_lines.append(result)
 
                     # Escribir los resultados en un archivo
