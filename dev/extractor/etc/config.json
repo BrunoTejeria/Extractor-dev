@@ -46,6 +46,10 @@
             "crunchyroll": {
                 "web":"crunchyroll.com",
                 "android":"com.crunchyroll.crunchyroid"
+            },
+            "directv": {
+                "url":"directvgo.com",
+                "android":"la.directvapp"
             }
 
 
