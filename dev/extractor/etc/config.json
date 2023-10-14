@@ -38,6 +38,14 @@
             "aws": {
                 "web":"aws.amazon.com",
                 "android":"aws"
+            },
+            "roblox": {
+                "web":"roblox.com",
+                "android":"com.roblox.client"
+            },
+            "crunchyroll": {
+                "web":"crunchyroll.com",
+                "android":"com.crunchyroll.crunchyroid"
             }
 
 
