@@ -44,7 +44,6 @@ class Check(File, Config):
 
         # Iterar a través de las URL en la configuración
         for site in self.urls[1]['site']:
-            file_result = self.file_result
             # imprimir en que se esta buscando
             console.print \
             (f'''
@@ -60,47 +59,29 @@ class Check(File, Config):
 
                     # Iterar a través de las líneas del archivo de búsqueda
                     for line in file_lines:
+                        result_split = []
+                        result = ''
                         progress_bar.update(1)
 
                         # Comprobar si la URL está en la línea
                         if url in line:
-                            if line != '' and line != '\n':
-                                result = ''
                                 try:
                                     post_result = line.find(':', line.find(':') + 1)
                                     if url in line[:post_result]:
                                         try:
-                                            result = line[line.index(' ') + 1:]
-                                        except ValueError:
                                             result = line[post_result + 1:]
+                                        except ValueError:
+                                            result = line[line.index(' ') + 1:]
                                 except ValueError:
-                                    try:
-                                        result = line[line.index(' ') + 1:]
-                                    except ValueError:
-                                        continue
+                                    continue
 
-                                # Comprobar si se encontró un resultado que no sea UNKNOWN de nombre y si resultado no esta en la lista con los resultado
-                                if not 'UNKNOWN' in result and not result in result_lines:
-                                    if 'netflix' in url or 'disney' in url or 'starplus' in url or 'hbo' in url:
-                                        # Comprobar si el resultado contiene '@' o es un número
-                                        try:
-                                            if not '@' in result[:result.find(':')]:
-                                                continue
-                                            else:
-                                                result_lines.append(result)
-                                        except:
-                                            continue
-                                    else:
-
-                                        result_lines.append(result)
+                                if 'UNKNOWN' not in result and result not in result_lines and ('netflix' in url or 'disney' in url or 'starplus' in url or 'hbo' in url) and '@' in result[:result.find(':')]:
+                                    result_lines.append(result)
 
                     # Escribir los resultados en un archivo
                     with open(f'{result_path}result_{site}.txt', 'a',) as file_:
-                        for line in result_lines:
-                            try:
+                            for line in result_lines:
                                 file_.write(line)
-                            except:
-                                continue
 
         # Devolver la lista de resultados
         return result_lines

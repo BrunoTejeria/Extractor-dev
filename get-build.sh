@@ -10,7 +10,7 @@ build="./build/"
 cp -r "$dev"/* "$build/"
 
 # Ruta del archivo de texto
-texto="./build/text.txt"
+texto="./build/text2.txt"
 
 # Ruta de texto para pegar
 textoRuta="./build/extractor/etc/data/raw_data/"
