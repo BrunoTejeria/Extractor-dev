@@ -39,11 +39,13 @@ class Check(File, Config):
     def process_lines(self):
         file_lines = self.lines
         count = 1
-        # Reiniciar el archivo de búsqueda al principio
 
 
         # Iterar a través de las URL en la configuración
         for site in self.config[1]['site']:
+            # Crear un archivo para los resultados o resetearlo si ya existe
+            file = open(f'{result_path}result_{site}.txt', 'w')
+
             # imprimir en que se esta buscando
             console.print \
             (f'''
@@ -55,7 +57,6 @@ class Check(File, Config):
                 userType = 'user'
             else:
                 userType = 'all'
-
             # Crear una barra de progreso con tqdm
             with tqdm(total=len(file_lines * len(self.config[1]['site'][site])), desc="Procesando", unit="línea", colour='green') as progress_bar:
                 results = []
