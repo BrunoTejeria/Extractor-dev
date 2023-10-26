@@ -1,9 +1,9 @@
 class File:
 
-    def __init__(self,file_search, file_result):
+    def __init__(self,file_search='', file_write=''):
         self.file_read = file_search
-        self.file_write = file_result
-        return [self.file_read, self.file_write]
+        self.file_write = file_write
+        return self.file_read, self.file_write
 
     def read(self):
         with open(file=self.file_read, mode='r', encoding='utf-8') as file:

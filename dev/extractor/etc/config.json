@@ -1,121 +1,123 @@
 [
     {
         "textFile": {
-            "textSearch": "extractor/etc/data/raw_data/text2.txt",
-            "textResult": "extractor/etc/data/processed_data/result.txt"
+            "textSearch": "extractor/etc/data/raw_data/text2.txt"
         }
     },
     {
         "site": {
             "starPlus": {
                 "web": "www.starplus.com",
-                "andorid": "com.disney.starplus"
+                "andorid": "com.disney.starplus",
+                "type": "mail"
             },
             "disney": {
                 "web": "disneyplus.com",
-                "android": "com.disney.disneyplus"
+                "android": "com.disney.disneyplus",
+                "type": "mail"
             },
             "tradingView": {
                 "web": "tradingview.com",
-                "android": "tradingview.tradingviewapp"
+                "android": "tradingview.tradingviewapp",
+                "type": "finance"
             },
             "netflix": {
                 "web": "netflix.com",
-                "android": "com.netflix.mediaclient"
+                "android": "com.netflix.mediaclient",
+                "type": "entertainment"
             },
             "hboMax": {
                 "web": "play.hbomax.com",
-                "android": "com.hbo.android.app"
+                "android": "com.hbo.android.app",
+                "type": "entertainment"
             },
             "snapChat": {
                 "web": "snapchat.com",
-                "android": "com.snapchat.android"
+                "android": "com.snapchat.android",
+                "type": "social"
             },
             "twitch": {
                 "web": "twitch.tv",
-                "android": "tv.twitch.android.app"
+                "android": "tv.twitch.android.app",
+                "type": "entertainment"
             },
             "roblox": {
                 "web": "roblox.com",
-                "android": "com.roblox.client"
+                "android": "com.roblox.client",
+                "type": "all"
             },
             "crunchyroll": {
                 "web": "crunchyroll.com",
-                "android": "com.crunchyroll"
+                "android": "com.crunchyroll",
+                "type": "entertainment"
             },
             "directv": {
                 "web": "directvgo.com",
-                "android": "la.directvapp"
+                "android": "la.directvapp",
+                "type": "mail"
             },
             "amazon": {
                 "web": "amazon.com",
-                "android": "com.facebook"
+                "android": "com.facebook",
+                "type": "mail"
             },
             "aws": {
                 "web": "aws.amazon.com",
-                "android": "aws"
+                "android": "aws",
+                "type": "mail"
             },
             "facebook": {
                 "web": "facebook.com",
-                "android": "com.facebook.katana"
+                "android": "com.facebook.katana",
+                "type": "mail"
             },
             "messenger": {
-                "android": "com.facebook.orca"
+                "android": "com.facebook.orca",
+                "type": "mail"
             },
             "steam": {
                 "web": "steampowered.com",
-                "webCommunity": "steamcommunity.com"
+                "webCommunity": "steamcommunity.com",
+                "type": "all"
             },
             "tunnelBear": {
-                "web": "tunnelbear.com"
+                "web": "tunnelbear.com",
+                "type": "mail"
             },
             "binomo": {
-                "web": "binomo.com"
+                "web": "binomo.com",
+                "type": "mail"
             },
             "iqOption": {
                 "web": "iqoption.com",
                 "web2": "iqoption.co",
-                "android": "iqoption.com"
+                "android": "iqoption.com",
+                "type": "mail"
             },
             "capital.com": {
-                "web": "https://capital.com"
+                "web": "https://capital.com",
+                "type": "mail"
             },
             "google": {
                 "web": "google.com",
-                "android": "com.google.android"
+                "android": "com.google.android",
+                "type": "mail"
             },
             "spotiy": {
                 "web": "spotify.com",
                 "android": "com.spotify.music",
-                "androidLite": "com.spotify.lite"
+                "androidLite": "com.spotify.lite",
+                "type": "all"
             },
             "dazn": {
                 "web": "dazn.com",
-                "andorid": "com.dazn"
+                "andorid": "com.dazn",
+                "type": "mail"
             },
             "microsoft": {
                 "web1": "microsoft.com",
                 "web2": "live.com",
-                "web3": "microsoftonline.com",
-                "android": "com.microsoft"
-            },
-            "Windstream": {
-                "web": "windstream.com"
-            },
-            "splice": {
-                "web": "splice.com"
-            },
-            "nordvpn": {
-                "web1": "nordaccount.com",
-                "web": "nordvpn.com",
-                "android": "com.nordvpn.android"
-            },
-            "supercell": {
-                "web": "supercell.com",
-                "andorid": "com.supercell."
-            },
-            "paramount": {
-                "web": "paramountplus.com"
+                "type": "mail"
             }
         }
     }
