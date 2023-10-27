@@ -81,24 +81,36 @@ class Check(File, Config):
                                     continue
 
                 # Iterar a través de los resultados
+                results_first_part = []
                 for result in result_lines:
-                    # Si el resultado no está en la lista de resultados, añadirlo
-                    if not result in results[:200]:
-                        if userType == 'mail':
-                            # Comprobar si el resultado contiene una @
-                            if '@' in result:
-                                # Añadir el resultado a la lista de resultado
+                    for result_checked in results:
+                        results_first_part.append(result_checked.split(':')[0])
 
+                    # Si el resultado no está en la lista de resultados, añadirlo
+                    try:
+                        result_first_part = result.split(':')[0]
+
+                        if not result_first_part in results_first_part:
+                            if userType == 'mail':
+                                # Comprobar si el resultado contiene una @
+                                if '@' in result:
+                                    # Añadir el resultado a la lista de resultado
+
+                                    results.append(result)
+                            else:
                                 results.append(result)
-                        else:
-                            results.append(result)
+                    except ValueError as e:
+                        print(e)
 
 
                 # Escribir los resultados en un archivo
                 with open(f'{result_path}result_{site}.txt', 'a',) as file_:
                         for result in results:
                             if result != '\n':
-                                file_.write(result)
+                                try:
+                                    file_.write(result)
+                                except:
+                                    continue
             console.print("[bold green]\nResultados totales: [/bold green]" + str(len(results)))
 
         # Devolver la lista de resultados
