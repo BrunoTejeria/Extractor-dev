@@ -1,11 +1,26 @@
 [
     {
         "textFile": {
-            "textSearch": "extractor/etc/data/raw_data/text2.txt"
+            "textSearch": "extractor/etc/data/raw_data/text.txt"
         }
     },
     {
         "site": {
+            "splice": {
+                "web": "splice.com",
+                "android": "com.splice",
+                "type": "mail"
+            },
+            "udemy": {
+                "web": "udemy.com",
+                "android": "com.udemy.android",
+                "type": "mail"
+            },
+            "skillShare": {
+                "web": "skillshare.com",
+                "android": "com.skillshare.Skillshare",
+                "type": "mail"
+            },
             "starPlus": {
                 "web": "www.starplus.com",
                 "andorid": "com.disney.starplus",
@@ -19,6 +34,16 @@
             "tradingView": {
                 "web": "tradingview.com",
                 "android": "tradingview.tradingviewapp",
+                "type": "finance"
+            },
+            "coinBase": {
+                "web": "coinbase.com",
+                "android": "com.coinbase.android",
+                "type": "finance"
+            },
+            "binance": {
+                "web": "binance.com",
+                "android": "com.binance.dev",
                 "type": "finance"
             },
             "netflix": {
@@ -36,14 +61,29 @@
                 "android": "com.snapchat.android",
                 "type": "social"
             },
+            "instagram": {
+                "web": "instagram.com",
+                "android": "com.instagram.android",
+                "type": "social"
+            },
             "twitch": {
                 "web": "twitch.tv",
                 "android": "tv.twitch.android.app",
                 "type": "entertainment"
             },
+            "hulu": {
+                "web": "hulu.com",
+                "android": "com.hulu.plus",
+                "type": "entertainment"
+            },
             "roblox": {
                 "web": "roblox.com",
                 "android": "com.roblox.client",
+                "type": "all"
+            },
+            "spotify": {
+                "web": "spotify.com",
+                "android": "com.spotify.music",
                 "type": "all"
             },
             "crunchyroll": {
@@ -84,14 +124,65 @@
                 "web": "tunnelbear.com",
                 "type": "mail"
             },
+            "nordVPN": {
+                "web": "nordvpn.com",
+                "type": "mail"
+            },
+            "expressVPN": {
+                "web": "expressvpn.com",
+                "type": "mail"
+            },
+            "surfShark": {
+                "web": "surfshark.com",
+                "type": "mail"
+            },
+            "ipVanish": {
+                "web": "ipvanish.com",
+                "type": "mail"
+            },
+            "cyberGhost": {
+                "web": "cyberghostvpn.com",
+                "type": "mail"
+            },
+            "protonVPN": {
+                "web": "protonvpn.com",
+                "type": "mail"
+            },
+            "avast": {
+                "web": "avast.com",
+                "type": "mail"
+            },
             "binomo": {
                 "web": "binomo.com",
+                "type": "mail"
+            },
+            "olympTrade": {
+                "web": "olymptrade.com",
                 "type": "mail"
             },
             "iqOption": {
                 "web": "iqoption.com",
                 "web2": "iqoption.co",
                 "android": "iqoption.com",
+                "type": "mail"
+            },
+            "apple": {
+                "web": "apple.com",
+                "type": "mail"
+            },
+            "microsoftTeams": {
+                "web": "teams.microsoft.com",
+                "android": "com.microsoft.teams",
+                "type": "mail"
+            },
+            "zoom": {
+                "web": "zoom.us",
+                "android": "us.zoom.videomeetings",
+                "type": "mail"
+            },
+            "skype": {
+                "web": "skype.com",
+                "android": "com.skype.raider",
                 "type": "mail"
             },
             "capital.com": {
@@ -118,6 +209,32 @@
                 "web1": "microsoft.com",
                 "web2": "live.com",
                 "type": "mail"
+            },
+            "adobe": {
+                "web": "adobe.com",
+                "type": "mail"
+            },
+            "github": {
+                "web": "github.com",
+                "type": "mail"
+            },
+            "reddit": {
+                "web": "reddit.com",
+                "type": "mail"
+            },
+            "discord": {
+                "web": "discord.com",
+                "type": "mail"
+            },
+            "tiktok": {
+                "web": "tiktok.com",
+                "android": "com.zhiliaoapp.musically",
+                "type": "social"
+            },
+            "tiktokLite": {
+                "web": "tiktok.com",
+                "android": "com.zhiliaoapp.musically.go",
+                "type": "social"
             }
         }
     }
