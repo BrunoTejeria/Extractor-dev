@@ -6,14 +6,6 @@
     },
     {
         "site": {
-            "roblox": {
-                "searchSites": {
-                    "web": "roblox.com",
-                    "android": "com.roblox.client"
-                },
-                "type": "all",
-                "genere": "gaming"
-            },
             "splice": {
                 "searchSites": {
                     "web": "splice.com",
@@ -44,7 +36,7 @@
                     "android": "com.disney.starplus"
                 },
                 "type": "mail",
-                "genere": "steaming"
+                "genere": "streaming"
             },
             "disney": {
                 "searchSites": {
@@ -52,7 +44,7 @@
                     "android": "com.disney.disneyplus"
                 },
                 "type": "mail",
-                "genere": "steaming"
+                "genere": "streaming"
             },
             "tradingView": {
                 "searchSites": {
@@ -84,7 +76,7 @@
                     "android": "com.netflix.mediaclient"
                 },
                 "type": "mail",
-                "genere": "steaming"
+                "genere": "streaming"
             },
             "hboMax": {
                 "searchSites": {
@@ -92,7 +84,7 @@
                     "android": "com.hbo.android.app"
                 },
                 "type": "mail",
-                "genere": "steaming"
+                "genere": "streaming"
             },
             "snapChat": {
                 "searchSites": {
@@ -116,7 +108,7 @@
                     "android": "tv.twitch.android.app"
                 },
                 "type": "all",
-                "genere": "steaming"
+                "genere": "streaming"
             },
             "hulu": {
                 "searchSites": {
@@ -132,7 +124,7 @@
                     "android": "com.crunchyroll"
                 },
                 "type": "all",
-                "genere": "steaming"
+                "genere": "streaming"
             },
             "directv": {
                 "searchSites": {
@@ -140,7 +132,14 @@
                     "android": "la.directvapp"
                 },
                 "type": "mail",
-                "genere": "steaming"
+                "genere": "streaming"
+            },
+            "epicGames": {
+                "searchSites": {
+                    "web": "epicgames.com"
+                },
+                "type": "all",
+                "genere": "gaming"
             },
             "amazon": {
                 "searchSites": {
@@ -374,6 +373,16 @@
                 },
                 "type": "all",
                 "genere": "social"
+            }
+        },
+        "disableSites": {
+            "roblox": {
+                "searchSites": {
+                    "web": "roblox.com",
+                    "android": "com.roblox.client"
+                },
+                "type": "all",
+                "genere": "gaming"
             }
         }
     }
