@@ -49,7 +49,7 @@ class Check(File, Config):
             # imprimir en que se esta buscando
             console.print \
             (f'''
-            [green]{site}[/green]
+            [bold red]{site}[/bold red]
             ''')
             if self.config[1]['site'][site]['type'] == 'mail':
                 userType = 'mail'
@@ -57,13 +57,18 @@ class Check(File, Config):
                 userType = 'user'
             else:
                 userType = 'all'
+            
+           
+            results = []
+            result_lines = []
+            
             # Crear una barra de progreso con tqdm
-            with tqdm(total=len(file_lines * len(self.config[1]['site'][site])), desc="Procesando", unit="línea", colour='green') as progress_bar:
-                results = []
-                result_lines = []
+            with tqdm(total=len(file_lines * len(self.config[1]['site'][site]["searchSites"])), desc="Procesando", unit="línea", colour='green') as progress_bar:
                 # Iterar a través de las URL y búsquedas en la configuración
-                for search in self.config[1]['site'][site]:
-                    url = self.config[1]['site'][site][search]
+                for searchSite in self.config[1]["site"][site]["searchSites"]:
+                    
+                    url = self.config[1]['site'][site]["searchSites"][searchSite]
+
                     # Iterar a través de las líneas del archivo de búsqueda
                     for line in file_lines:
                         result = ''
@@ -72,46 +77,39 @@ class Check(File, Config):
 
                         # Comprobar si la URL está en la línea
                         if url in line:
-                                try:
-                                    post_result = line.find(':', line.find(':') + 1)
-                                    if url in line[:post_result]:
-                                        result = line[post_result + 1:]
-                                        result_lines.append(result)
-                                except ValueError:
-                                    continue
+                            post_result = line.find(':', line.find(':') + 1)
+                            if url in line[:post_result]:
+                                result = line[post_result + 1:]
+                            result_lines.append(result)
 
-                # Iterar a través de los resultados
-                results_first_part = []
-                for result in result_lines:
-                    for result_checked in results:
-                        results_first_part.append(result_checked.split(':')[0])
-
-                    # Si el resultado no está en la lista de resultados, añadirlo
-                    try:
-                        result_first_part = result.split(':')[0]
-
-                        if not result_first_part in results_first_part:
+            # Iterar a través de los resultados
+            results_first_part = []
+            for result in result_lines:
+                try:
+                    result_first_part = result.split(':')[0]
+                    if not "UNKNOWN" in result:
+                        if not result_first_part in results_first_part and len(result) <= 64:
                             if userType == 'mail':
                                 # Comprobar si el resultado contiene una @
                                 if '@' in result:
                                     # Añadir el resultado a la lista de resultado
-
+                                    results_first_part.append(result.split(':')[0])
                                     results.append(result)
                             else:
+                                results_first_part.append(result.split(':')[0])
                                 results.append(result)
-                    except ValueError as e:
-                        print(e)
+                except ValueError as e:
+                    print(e)
 
-
-                # Escribir los resultados en un archivo
-                with open(f'{result_path}result_{site}.txt', 'a',) as file_:
-                        for result in results:
-                            if result != '\n':
-                                try:
-                                    file_.write(result)
-                                except:
-                                    continue
-            console.print("[bold green]\nResultados totales: [/bold green]" + str(len(results)))
+            # Escribir los resultados en un archivo
+            with open(f'{result_path}result_{site}.txt', 'a',) as file_:
+                    for result in results:
+                        if result != '\n':
+                            try:
+                                file_.write(result)
+                            except:
+                                continue
+        console.print("[bold green]\nResultados totales: [/bold green]" + str(len(results)))
 
         # Devolver la lista de resultados
         return result_lines
