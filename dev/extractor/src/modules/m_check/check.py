@@ -79,13 +79,13 @@ class Check(File, Config):
             result_lines = []
 
             # Crear una barra de progreso con tqdm
-            with tqdm(total=len(file_lines * len(self.config[1]['site'][site]["searchSites"])), desc="Procesando", unit="línea", colour='green') as progress_bar:
+            with tqdm(total=len(file_lines * len(self.config[1]['site'][site]["searchSites"])), desc="Procesando", unit="línea", colour='green', unit_scale=True) as progress_bar:
                 # Iterar a través de las URL y búsquedas en la configuración
                 for searchSite in self.config[1]["site"][site]["searchSites"]:
                     url = self.config[1]['site'][site]["searchSites"][searchSite]
 
                     # Iterar a través de las líneas del archivo de búsqueda
-                    for line in file_lines[1000000:]:
+                    for line in file_lines:
                         result = ''
 
                         progress_bar.update(1)
@@ -100,7 +100,7 @@ class Check(File, Config):
             # Iterar a través de los resultados
             results_first_part = []
             print('\n')
-            with tqdm(total=len(result_lines), desc="Chequeando", unit="línea", colour='blue', ) as progress_bar:
+            with tqdm(total=len(result_lines), desc="Chequeando", unit="línea", colour='blue', unit_scale=True) as progress_bar:
                 if userType == 'mail':
                     for result in result_lines:
                         try:

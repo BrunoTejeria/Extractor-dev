@@ -109,20 +109,6 @@ def config():
         else:
             console.print("Opción no válida.", style="bold red")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Funcion para ejecutar el programa
 def main():
     print(f'[green]{text}[/green]')
