@@ -7,7 +7,7 @@ except:
 try:
     from ...packages.pack_reinstall.pack import reinstall
 except:
-    print("[!] Error al importar resinstall")
+    print("[!] Error al importar reinstall")
     reinstall()
     quit()
 
