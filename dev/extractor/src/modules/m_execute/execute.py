@@ -37,7 +37,7 @@ except:
 # Crear objeto para chequear
 search = Check()
 
-# Crear objeto de configuracion
+# Crear objeto de configuración
 # config = Config()
 
 # Crea una instancia de la consola Rich
@@ -73,11 +73,11 @@ table_config_url = """
 """
 
 
-# Funcion para configurar
+# Función para configurar
 def config():
-    # Funcion para configurar sitios
+    # Función para configurar sitios
     def site():
-        # Crear lista de opciones para la tabla de configuracion de urls
+        # Crear lista de opciones para la tabla de configuración de urls
         table_config_url_choices = [0]
         for site in search.config[1]["site"]:
             table_config_url_choices.append(site)
@@ -92,7 +92,7 @@ def config():
             for site in table_config_url_choices:
                 console_rich.print(f"[green]{index}.[/green] [red]{site}[/red]")
                 index += 1
-            # Preguntar al usuario por la opcion seleccionada
+            # Preguntar al usuario por la opción seleccionada
 
             while not selected_option in table_config_url_choices_index_str:
                 selected_option = input("Selecciona una opción (ingresa 0 para salir):")
@@ -119,18 +119,18 @@ def config():
                 else:
                     break
 
-    # Funcion para configurar urls
+    # Función para configurar urls
     def text_read():
         pass
 
-    # Funcion para configurar urls
+    # Función para configurar urls
     def text_write():
         pass
 
     site()
 
 
-# Funcion para ejecutar el programa
+# Función para ejecutar el programa
 def main():
     print(f"[green]{text}[/green]")
     while True:

@@ -14,7 +14,7 @@ try:
 except ImportError:
     pass
 
-# Ruta del archivo de configuracion
+# Ruta del archivo de configuración
 config_path = 'extractor/etc/config.json'
 result_path = 'extractor/etc/data/processed_data/'
 
@@ -46,7 +46,7 @@ class Check(File, Config):
 
         # Iterar a través de las URL en la configuración
         for site in self.config[1]['site']:
-            # Objetener el tipo que es el resutado para saber en que carpeta hay que guardarlo
+            # Objeten el tipo que es el resultado para saber en que carpeta hay que guardarlo
             search_type = self.config[1]['site'][site]['genere']
 
             # Crear un archivo para los resultados o resetearlo si ya existe
@@ -81,7 +81,7 @@ class Check(File, Config):
             result_lines = np.array([])
 
             # Crear una barra de progreso con tqdm
-            with tqdm(total=len(file_lines * len(self.config[1]['site'][site]["searchSites"])), desc="Procesando", unit="línea", colour='green', unit_scale=True) as progress_bar:
+            with tqdm(total=len(file_lines * len(self.config[1]['site'][site]["searchSites"])), desc="Procesando", unit="línea", color='green', unit_scale=True) as progress_bar:
                 # Iterar a través de las URL y búsquedas en la configuración
                 for searchSite in self.config[1]["site"][site]["searchSites"]:
                     url = self.config[1]['site'][site]["searchSites"][searchSite]
@@ -102,7 +102,7 @@ class Check(File, Config):
             # Iterar a través de los resultados
             results_first_part = np.array([])
             print('\n')
-            with tqdm(total=len(result_lines), desc="Chequeando", unit="línea", colour='blue', unit_scale=True) as progress_bar:
+            with tqdm(total=len(result_lines), desc="Chequeando", unit="línea", color='blue', unit_scale=True) as progress_bar:
                 if userType == 'mail':
                     for result in result_lines:
                         try:
