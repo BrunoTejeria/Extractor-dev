@@ -10,6 +10,7 @@ try:
     from tqdm import tqdm
     import json
     import os
+    import numpy as np
 except ImportError:
     pass
 
@@ -76,8 +77,8 @@ class Check(File, Config):
                 userType = 'all'
 
             # Inicializar listas para los resultados
-            results = []
-            result_lines = []
+            results = np.array([])
+            result_lines = np.array([])
 
             # Crear una barra de progreso con tqdm
             with tqdm(total=len(file_lines * len(self.config[1]['site'][site]["searchSites"])), desc="Procesando", unit="línea", colour='green', unit_scale=True) as progress_bar:
@@ -96,10 +97,10 @@ class Check(File, Config):
                             post_result = line.find(':', line.find(':') + 1)
                             if url in line[:post_result]:
                                 result = line[post_result + 1:]
-                            result_lines.append(result)
+                            result_lines = np.append(result_lines, result)
 
             # Iterar a través de los resultados
-            results_first_part = []
+            results_first_part = np.array([])
             print('\n')
             with tqdm(total=len(result_lines), desc="Chequeando", unit="línea", colour='blue', unit_scale=True) as progress_bar:
                 if userType == 'mail':
@@ -112,8 +113,8 @@ class Check(File, Config):
                                         # Comprobar si el resultado contiene una @
                                         if '@' in result_first_part:
                                             # Añadir el resultado a la lista de resultado
-                                            results_first_part.append(result.split(':')[0])
-                                            results.append(result)
+                                            results_first_part = np.append(results_first_part, result.split(':')[0])
+                                            results = np.append(results, result)
                         except ValueError as e:
                             print(e)
                         progress_bar.update(1)
@@ -121,11 +122,10 @@ class Check(File, Config):
                     for result in result_lines:
                         try:
                             if not "UNKNOWN" in result:
-                                result_first_part = result.split(':')[0]
                                 if len(result) <= 64:
                                     if not result_first_part in results_first_part:
-                                        results_first_part.append(result_first_part)
-                                        results.append(result)
+                                            results_first_part = np.append(results_first_part, result.split(':')[0])
+                                            results = np.append(results, result)
                         except ValueError as e:
                             print(e)
                         progress_bar.update(1)

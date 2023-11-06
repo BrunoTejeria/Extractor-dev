@@ -1,3 +1,5 @@
+import numpy as np
+
 class File:
 
     def __init__(self,file_search='', file_write=''):
@@ -6,10 +8,14 @@ class File:
         return self.file_read, self.file_write
 
     def read(self):
+
+        final_lines = np.array([])
         with open(file=self.file_read, mode='r', encoding='utf-8') as file:
             lines = file.readlines()
             file.close()
-        self.lines = lines
+        for line in lines:
+            final_lines = np.append(final_lines, line)
+        self.lines = final_lines
 
     def reset(self):
         with open \
