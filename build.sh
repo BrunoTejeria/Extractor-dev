@@ -4,4 +4,4 @@
 cd build
 
 # ejecutar build
-python3 extractor
+python extractor

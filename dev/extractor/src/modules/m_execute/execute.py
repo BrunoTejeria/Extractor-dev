@@ -1,33 +1,51 @@
 try:
-    from rich.console import Console
-    from rich import print
-    from rich.prompt import Prompt
-except ImportError:
-    print('[!] Error al importar rich')
+    import os
 except:
-    print('[!] Error')
+    print("[!] Error al importar os")
+    quit()
 
-from ..m_check.check import (
-    Check
-)
+try:
+    from ...packages.pack_reinstall.pack import reinstall
+except:
+    print("[!] Error al importar resinstall")
+    reinstall()
+    quit()
+
+try:
+    import json
+except:
+    print("[!] Error al importar json")
+    quit()
 
 
+"""try:"""
+from rich.console import Console
+from rich.prompt import Prompt
+from rich import print
+"""except ImportError as error:
+    print(f'[!] Error al importar "{error.name}: {error.args[0]}"')
+    reinstall(Q=True)"""
+
+
+try:
+    from ..m_check.check import Check
+except:
+    print("[!] Error al importar Check")
+    quit()
 
 
 # Crear objeto para chequear
 search = Check()
 
 # Crear objeto de configuracion
-#config = Config()
+# config = Config()
 
 # Crea una instancia de la consola Rich
-console = Console()
-
+console_rich = Console()
 
 
 # Banner
-text = \
-'''
+text = """
 :::::::::: :::    ::: ::::::::::: :::::::::      :::      ::::::::  :::::::::::  ::::::::  :::::::::  
 :+:        :+:    :+:     :+:     :+:    :+:   :+: :+:   :+:    :+:     :+:     :+:    :+: :+:    :+: 
 +:+         +:+  +:+      +:+     +:+    +:+  +:+   +:+  +:+            +:+     +:+    +:+ +:+    +:+ 
@@ -35,102 +53,104 @@ text = \
 +#+         +#+  +#+      +#+     +#+    +#+ +#+     +#+ +#+            +#+     +#+    +#+ +#+    +#+ 
 #+#        #+#    #+#     #+#     #+#    #+# #+#     #+# #+#    #+#     #+#     #+#    #+# #+#    #+# 
 ########## ###    ###     ###     ###    ### ###     ###  ########      ###      ########  ###    ### 
-'''
+"""
 
 # Tabla con las opciones
-table_menu = \
-'''
+table_menu = """
 [green]1.[/green] [red]Buscar[/red]
 [green]2.[/green] [red]Configuración[/red]
 [green]3.[/green] [red]Bla Bla[/red]
 [green]0.[/green] [red]Salir[/red]
 
-'''
+"""
 
-table_config = \
-'''
-[green]1.[/green] [red]Desactivar Urls[/red]
+table_config_url = """
+[green]1.[/green] [red]Desactivar/Activar Urls[/red]
 [green]2.[/green] [red]Agregar Url[/red]
 [green]3.[/green] [red]Bla Bla[/red]
 [green]0.[/green] [red]Salir[/red]
 
-'''
-
-
+"""
 
 
 # Funcion para configurar
 def config():
     # Funcion para configurar sitios
     def site():
-        choices_sites = []
-        for site in search.config[1]['site']:
-            choices_sites.append(site)
+        # Crear lista de opciones para la tabla de configuracion de urls
+        table_config_url_choices = [0]
+        for site in search.config[1]["site"]:
+            table_config_url_choices.append(site)
 
-        print("Selecciona el sitio el cual quires configurar:")
-        index = 1
-        for site in choices_sites:
-            print(f'[green]{index}.[/green] [red]{site}[/red]')
-            index += 1
-        selected_option = Prompt.ask('Selecciona una opción (ingresa 0 para salir):', choices=list(range(1, len(choices_sites)+1)), show_choices=True)
-        selected_site = choices_sites[int(selected_option)-1]
-        print(int(selected_option)-1)
-        print(int(selected_option))
+        table_config_url_choices_index_str = str(list(range(1, len(table_config_url_choices) + 1)))
+        table_config_url_choices_index_int = list(range(1, len(table_config_url_choices) + 1))
 
+        # Bucle para seleccionar el sitio a configurar
+        while True:
+            console_rich.print("Selecciona el sitio el cual quieres configurar:")
+            index = 1
+            for site in table_config_url_choices:
+                console_rich.print(f"[green]{index}.[/green] [red]{site}[/red]")
+                index += 1
+            # Preguntar al usuario por la opcion seleccionada
+
+            while not selected_option in table_config_url_choices_index_str:
+                selected_option = input("Selecciona una opción (ingresa 0 para salir):")
+                if not selected_option in table_config_url_choices_index_str:
+                    console_rich.print(f"[bool red]Opción no válida[/bool red]")
+
+            selected_option = Prompt.ask("Selecciona una opción (ingresa 0 para salir)", choices=table_config_url_choices_index_str, show_choices=True)
+            print(int(selected_option))
+            selected_option = table_config_url_choices[int(selected_option) - 1]
+            if selected_option == 0:
+                break
+            Console_rich.print(f"Sitio seleccionado: [green]{selected_option}[/green]")
+
+            # Bucle para configurar el sitio seleccionado
+            while True:
+                console_rich.clear()
+                print(f"[green]{text}[/green]")
+                console_rich.print(table_config_url)
+                selected_option = Prompt.ask("Selecciona una opción (ingresa 0 para salir):", choices=["0", "1", "2", "3"],)
+                if selected_option != 0:
+                    with open(search.config, "r") as file:
+                        data = json.load(file)
+                        print(data)
+                else:
+                    break
 
     # Funcion para configurar urls
     def text_read():
         pass
+
     # Funcion para configurar urls
     def text_write():
         pass
+
     site()
 
-    print(f'[green]{text}[/green]')
-    while True:
-        console.print(table_config)
-        selected_option = Prompt.ask('Selecciona una opción (ingresa 0 para salir):', choices=['0','1','2','3'])
-
-        if selected_option == "1":
-            console.print("Has seleccionado 'Buscar'", style="bold green")
-            a = search.process_lines()
-            console.clear
-
-        elif selected_option == "2":
-            console.print("Has seleccionado 'Configuración'", style="bold green")
-            config()
-
-        elif selected_option == "3":
-            console.print("Has seleccionado 'Opción 3'", style="bold green")
-
-        elif selected_option == "0":
-            console.print("Saliendo...", style="bold red")
-            break
-        else:
-            console.print("Opción no válida.", style="bold red")
 
 # Funcion para ejecutar el programa
 def main():
-    print(f'[green]{text}[/green]')
+    print(f"[green]{text}[/green]")
     while True:
-        console.print(table_menu)
-        selected_option = Prompt.ask('Selecciona una opción (ingresa 0 para salir):', choices=['0','1','2','3'])
+        console_rich.print(table_menu)
+        selected_option = Prompt.ask("Selecciona una opción (ingresa 0 para salir):", choices=["0", "1", "2", "3"],)
 
         if selected_option == "1":
-            console.print("Has seleccionado 'Buscar'", style="bold green")
-            a = search.process_lines()
-            console.clear
+            console_rich.print("Has seleccionado 'Buscar'", style="bold green")
+            search.process_lines()
+            console_rich.clear
 
         elif selected_option == "2":
-            console.print("Has seleccionado 'Configuración'", style="bold green")
+            console_rich.print("Has seleccionado 'Configuración'", style="bold green")
             config()
 
         elif selected_option == "3":
-            console.print("Has seleccionado 'Opción 3'", style="bold green")
+            console_rich.print("Has seleccionado 'Opción 3'", style="bold green")
 
         elif selected_option == "0":
-            console.print("Saliendo...", style="bold red")
+            console_rich.print("Saliendo...", style="bold red")
             break
         else:
-            console.print("Opción no válida.", style="bold red")
-
+            console_rich.print("Opción no válida.", style="bold red")

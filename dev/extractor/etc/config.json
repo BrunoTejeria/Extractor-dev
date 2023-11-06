@@ -373,6 +373,13 @@
                 },
                 "type": "all",
                 "genere": "social"
+            },
+            "riotGames": {
+                "searchSites": {
+                    "web": "riotgames.com"
+                },
+                "type": "all",
+                "genere": "gaming"
             }
         },
         "disableSites": {
