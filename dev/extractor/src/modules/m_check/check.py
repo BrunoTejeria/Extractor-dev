@@ -81,7 +81,7 @@ class Check(File, Config):
             result_lines = np.array([])
 
             # Crear una barra de progreso con tqdm
-            with tqdm(total=len(file_lines * len(self.config[1]['site'][site]["searchSites"])), desc="Procesando", unit="línea", color='green', unit_scale=True) as progress_bar:
+            with tqdm(total=len(file_lines * len(self.config[1]['site'][site]["searchSites"])), desc="Procesando", unit="línea", colour='green', unit_scale=True) as progress_bar:
                 # Iterar a través de las URL y búsquedas en la configuración
                 for searchSite in self.config[1]["site"][site]["searchSites"]:
                     url = self.config[1]['site'][site]["searchSites"][searchSite]
@@ -102,19 +102,18 @@ class Check(File, Config):
             # Iterar a través de los resultados
             results_first_part = np.array([])
             print('\n')
-            with tqdm(total=len(result_lines), desc="Chequeando", unit="línea", color='blue', unit_scale=True) as progress_bar:
+            with tqdm(total=len(result_lines), desc="Chequeando", unit="línea", colour='blue', unit_scale=True) as progress_bar:
                 if userType == 'mail':
                     for result in result_lines:
                         try:
-                            if not "UNKNOWN" in result:
-                                if len(result) <= 64:
-                                    result_first_part = result.split(':')[0]
-                                    if not result_first_part in results_first_part:
-                                        # Comprobar si el resultado contiene una @
-                                        if '@' in result_first_part:
-                                            # Añadir el resultado a la lista de resultado
-                                            results_first_part = np.append(results_first_part, result.split(':')[0])
-                                            results = np.append(results, result)
+                            if len(result) <= 64:
+                                result_first_part = result.split(':')[0]
+                                if not result_first_part in results_first_part:
+                                    # Comprobar si el resultado contiene una @
+                                    if '@' in result_first_part:
+                                        # Añadir el resultado a la lista de resultado
+                                        results_first_part = np.append(results_first_part, result_first_part)
+                                        results = np.append(results, result)
                         except ValueError as e:
                             print(e)
                         progress_bar.update(1)
@@ -123,8 +122,9 @@ class Check(File, Config):
                         try:
                             if not "UNKNOWN" in result:
                                 if len(result) <= 64:
+                                    result_first_part = result.split(':')[0]
                                     if not result_first_part in results_first_part:
-                                            results_first_part = np.append(results_first_part, result.split(':')[0])
+                                            results_first_part = np.append(results_first_part, results_first_part)
                                             results = np.append(results, result)
                         except ValueError as e:
                             print(e)

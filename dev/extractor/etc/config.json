@@ -5,391 +5,397 @@
         }
     },
     {
+        "disableSites": {},
         "site": {
-            "splice": {
+            "adobe": {
+                "genere": "development",
                 "searchSites": {
-                    "web": "splice.com",
-                    "android": "com.splice.splice"
+                    "web": "adobe.com"
                 },
-                "type": "mail",
-                "genere": "music"
-            },
-            "udemy": {
-                "searchSites": {
-                    "web": "udemy.com",
-                    "android": "com.udemy.android"
-                },
-                "type": "mail",
-                "genere": "education"
-            },
-            "skillShare": {
-                "searchSites": {
-                    "web": "skillshare.com",
-                    "android": "com.skillshare.Skillshare"
-                },
-                "type": "mail",
-                "genere": "education"
-            },
-            "starPlus": {
-                "searchSites": {
-                    "web": "www.starplus.com",
-                    "android": "com.disney.starplus"
-                },
-                "type": "mail",
-                "genere": "streaming"
-            },
-            "disney": {
-                "searchSites": {
-                    "web": "www.disneyplus.com",
-                    "android": "com.disney.disneyplus"
-                },
-                "type": "mail",
-                "genere": "streaming"
-            },
-            "tradingView": {
-                "searchSites": {
-                    "web": "tradingview.com",
-                    "android": "com.tradingview.tradingviewapp"
-                },
-                "type": "all",
-                "genere": "trading"
-            },
-            "coinBase": {
-                "searchSites": {
-                    "web": "coinbase.com",
-                    "android": "com.coinbase.android"
-                },
-                "type": "all",
-                "genere": "trading"
-            },
-            "binance": {
-                "searchSites": {
-                    "web": "binance.com",
-                    "android": "com.binance.dev"
-                },
-                "type": "all",
-                "genere": "trading"
-            },
-            "netflix": {
-                "searchSites": {
-                    "web": "netflix.com",
-                    "android": "com.netflix.mediaclient"
-                },
-                "type": "mail",
-                "genere": "streaming"
-            },
-            "hboMax": {
-                "searchSites": {
-                    "web": "play.hbomax.com",
-                    "android": "com.hbo.android.app"
-                },
-                "type": "mail",
-                "genere": "streaming"
-            },
-            "snapChat": {
-                "searchSites": {
-                    "web": "snapchat.com",
-                    "android": "com.snapchat.android"
-                },
-                "type": "all",
-                "genere": "social"
-            },
-            "instagram": {
-                "searchSites": {
-                    "web": "instagram.com",
-                    "android": "com.instagram.android"
-                },
-                "type": "all",
-                "genere": "social"
-            },
-            "twitch": {
-                "searchSites": {
-                    "web": "twitch.tv",
-                    "android": "tv.twitch.android.app"
-                },
-                "type": "all",
-                "genere": "streaming"
-            },
-            "hulu": {
-                "searchSites": {
-                    "web": "hulu.com",
-                    "android": "com.hulu.plus"
-                },
-                "type": "mail",
-                "genere": "streaming"
-            },
-            "crunchyroll": {
-                "searchSites": {
-                    "web": "crunchyroll.com",
-                    "android": "com.crunchyroll"
-                },
-                "type": "all",
-                "genere": "streaming"
-            },
-            "directv": {
-                "searchSites": {
-                    "web": "directvgo.com",
-                    "android": "la.directvapp"
-                },
-                "type": "mail",
-                "genere": "streaming"
-            },
-            "epicGames": {
-                "searchSites": {
-                    "web": "epicgames.com"
-                },
-                "type": "all",
-                "genere": "gaming"
+                "type": "mail"
             },
             "amazon": {
+                "genere": "service",
                 "searchSites": {
-                    "web": "amazon.com",
-                    "android": "com.amazon"
+                    "android": "com.amazon",
+                    "web": "amazon.com"
                 },
-                "type": "mail",
-                "genere": "service"
-            },
-            "aws": {
-                "searchSites": {
-                    "web": "aws.amazon.com",
-                    "android": "aws"
-                },
-                "type": "mail",
-                "genere": "service"
-            },
-            "facebook": {
-                "searchSites": {
-                    "web": "facebook.com",
-                    "android": "com.facebook.katana"
-                },
-                "type": "all",
-                "genere": "social"
-            },
-            "messenger": {
-                "searchSites": {
-                    "android": "com.facebook.orca"
-                },
-                "type": "all",
-                "genere": "social"
-            },
-            "steam": {
-                "searchSites": {
-                    "web": "steampowered.com",
-                    "webCommunity": "steamcommunity.com"
-                },
-                "type": "all",
-                "genere": "gaming"
-            },
-            "tunnelBear": {
-                "searchSites": {
-                    "web": "tunnelbear.com"
-                },
-                "type": "mail",
-                "genere": "VPN"
-            },
-            "nordVPN": {
-                "searchSites": {
-                    "web": "nordvpn.com"
-                },
-                "type": "mail",
-                "genere": "VPN"
-            },
-            "expressVPN": {
-                "searchSites": {
-                    "web": "expressvpn.com"
-                },
-                "type": "mail",
-                "genere": "VPN"
-            },
-            "surfShark": {
-                "searchSites": {
-                    "web": "surfshark.com"
-                },
-                "type": "mail",
-                "genere": "VPN"
-            },
-            "ipVanish": {
-                "searchSites": {
-                    "web": "ipvanish.com"
-                },
-                "type": "mail",
-                "genere": "VPN"
-            },
-            "cyberGhost": {
-                "searchSites": {
-                    "web": "cyberghostvpn.com"
-                },
-                "type": "mail",
-                "genere": "VPN"
-            },
-            "protonVPN": {
-                "searchSites": {
-                    "web": "protonvpn.com"
-                },
-                "type": "mail",
-                "genere": "VPN"
-            },
-            "avast": {
-                "searchSites": {
-                    "web": "avast.com"
-                },
-                "type": "mail",
-                "genere": "antivirus"
-            },
-            "binomo": {
-                "searchSites": {
-                    "web": "binomo.com"
-                },
-                "type": "mail",
-                "genere": "trading"
-            },
-            "olympTrade": {
-                "searchSites": {
-                    "web": "olymptrade.com"
-                },
-                "type": "mail",
-                "genere": "trading"
-            },
-            "iqOption": {
-                "searchSites": {
-                    "web": "iqoption.com",
-                    "web2": "iqoption.co",
-                    "android": "iqoption.com"
-                },
-                "type": "mail",
-                "genere": "trading"
+                "type": "mail"
             },
             "apple": {
+                "genere": "service",
                 "searchSites": {
                     "web": "apple.com"
                 },
-                "type": "mail",
-                "genere": "service"
+                "type": "mail"
             },
-            "microsoftTeams": {
+            "avast": {
+                "genere": "antivirus",
                 "searchSites": {
-                    "web": "teams.microsoft.com",
-                    "android": "com.microsoft.teams"
+                    "web": "avast.com"
                 },
-                "type": "mail",
-                "genere": "social"
+                "type": "mail"
             },
-            "zoom": {
+            "aws": {
+                "genere": "development",
                 "searchSites": {
-                    "web": "zoom.us",
-                    "android": "us.zoom.videomeetings"
+                    "android": "aws",
+                    "web": "aws.amazon.com"
                 },
-                "type": "mail",
-                "genere": "social"
+                "type": "mail"
             },
-            "skype": {
+            "binance": {
+                "genere": "trading",
                 "searchSites": {
-                    "web": "skype.com",
-                    "android": "com.skype.raider"
+                    "android": "com.binance.dev",
+                    "web": "binance.com"
                 },
-                "type": "mail",
-                "genere": "social"
+                "type": "all"
+            },
+            "binomo": {
+                "genere": "trading",
+                "searchSites": {
+                    "web": "binomo.com"
+                },
+                "type": "mail"
             },
             "capital.com": {
+                "genere": "trading",
                 "searchSites": {
                     "web": "https://capital.com"
                 },
-                "type": "mail",
-                "genere": "trading"
+                "type": "mail"
             },
-            "google": {
+            "coinBase": {
+                "genere": "trading",
                 "searchSites": {
-                    "web": "google.com",
-                    "android": "com.google.android"
+                    "android": "com.coinbase.android",
+                    "web": "coinbase.com"
                 },
-                "type": "mail",
-                "genere": "service"
+                "type": "all"
             },
-            "spotify": {
+            "crunchyroll": {
+                "genere": "streaming",
                 "searchSites": {
-                    "web": "spotify.com",
-                    "android": "com.spotify.music",
-                    "androidLite": "com.spotify.lite"
+                    "android": "com.crunchyroll",
+                    "web": "crunchyroll.com"
                 },
-                "type": "all",
-                "genere": "music"
+                "type": "all"
+            },
+            "cyberGhost": {
+                "genere": "VPN",
+                "searchSites": {
+                    "web": "cyberghostvpn.com"
+                },
+                "type": "mail"
             },
             "dazn": {
+                "genere": "streaming",
                 "searchSites": {
-                    "web": "dazn.com",
-                    "andorid": "com.dazn"
+                    "andorid": "com.dazn",
+                    "web": "dazn.com"
                 },
-                "type": "mail",
-                "genere": "streaming"
+                "type": "mail"
+            },
+            "directv": {
+                "genere": "streaming",
+                "searchSites": {
+                    "android": "la.directvapp",
+                    "web": "directvgo.com"
+                },
+                "type": "mail"
+            },
+            "discord": {
+                "genere": "social",
+                "searchSites": {
+                    "web": "discord.com"
+                },
+                "type": "mail"
+            },
+            "disney": {
+                "genere": "streaming",
+                "searchSites": {
+                    "android": "com.disney.disneyplus",
+                    "web": "www.disneyplus.com"
+                },
+                "type": "mail"
+            },
+            "epicGames": {
+                "genere": "gaming",
+                "searchSites": {
+                    "web": "epicgames.com"
+                },
+                "type": "all"
+            },
+            "expressVPN": {
+                "genere": "VPN",
+                "searchSites": {
+                    "web": "expressvpn.com"
+                },
+                "type": "mail"
+            },
+            "facebook": {
+                "genere": "social",
+                "searchSites": {
+                    "android": "com.facebook.katana",
+                    "web": "facebook.com"
+                },
+                "type": "all"
+            },
+            "github": {
+                "genere": "development",
+                "searchSites": {
+                    "web": "github.com"
+                },
+                "type": "mail"
+            },
+            "google": {
+                "genere": "service",
+                "searchSites": {
+                    "android": "com.google.android",
+                    "web": "google.com"
+                },
+                "type": "mail"
+            },
+            "hboMax": {
+                "genere": "streaming",
+                "searchSites": {
+                    "android": "com.hbo.android.app",
+                    "web": "play.hbomax.com"
+                },
+                "type": "mail"
+            },
+            "hulu": {
+                "genere": "streaming",
+                "searchSites": {
+                    "android": "com.hulu.plus",
+                    "web": "hulu.com"
+                },
+                "type": "mail"
+            },
+            "instagram": {
+                "genere": "social",
+                "searchSites": {
+                    "android": "com.instagram.android",
+                    "web": "instagram.com"
+                },
+                "type": "all"
+            },
+            "ipVanish": {
+                "genere": "VPN",
+                "searchSites": {
+                    "web": "ipvanish.com"
+                },
+                "type": "mail"
+            },
+            "iqOption": {
+                "genere": "trading",
+                "searchSites": {
+                    "android": "iqoption.com",
+                    "web": "iqoption.com",
+                    "web2": "iqoption.co"
+                },
+                "type": "mail"
+            },
+            "messenger": {
+                "genere": "social",
+                "searchSites": {
+                    "android": "com.facebook.orca"
+                },
+                "type": "all"
             },
             "microsoft": {
+                "genere": "service",
                 "searchSites": {
                     "web1": "microsoft.com",
                     "web2": "live.com"
                 },
-                "type": "mail",
-                "genere": "service"
+                "type": "mail"
             },
-            "adobe": {
+            "microsoftTeams": {
+                "genere": "social",
                 "searchSites": {
-                    "web": "adobe.com"
+                    "android": "com.microsoft.teams",
+                    "web": "teams.microsoft.com"
                 },
-                "type": "mail",
-                "genere": "development"
+                "type": "mail"
             },
-            "github": {
+            "netflix": {
+                "genere": "streaming",
                 "searchSites": {
-                    "web": "github.com"
+                    "android": "com.netflix.mediaclient",
+                    "web": "netflix.com"
                 },
-                "type": "mail",
-                "genere": "development"
+                "type": "mail"
+            },
+            "nordVPN": {
+                "genere": "VPN",
+                "searchSites": {
+                    "web": "nordvpn.com"
+                },
+                "type": "mail"
+            },
+            "olympTrade": {
+                "genere": "trading",
+                "searchSites": {
+                    "web": "olymptrade.com"
+                },
+                "type": "mail"
+            },
+            "platzi": {
+                "genere": "education",
+                "searchSites": {
+                    "web": "platzi.com"
+                },
+                "type": "mail"
+            },
+            "protonVPN": {
+                "genere": "VPN",
+                "searchSites": {
+                    "web": "protonvpn.com"
+                },
+                "type": "mail"
             },
             "reddit": {
+                "genere": "social",
                 "searchSites": {
                     "web": "reddit.com"
                 },
-                "type": "mail",
-                "genere": "social"
-            },
-            "discord": {
-                "searchSites": {
-                    "web": "discord.com"
-                },
-                "type": "mail",
-                "genere": "social"
-            },
-            "tiktok": {
-                "searchSites": {
-                    "web": "tiktok.com",
-                    "android": "com.zhiliaoapp.musically"
-                },
-                "type": "all",
-                "genere": "social"
-            },
-            "tiktokLite": {
-                "searchSites": {
-                    "web": "tiktok.com",
-                    "android": "com.zhiliaoapp.musically.go"
-                },
-                "type": "all",
-                "genere": "social"
+                "type": "mail"
             },
             "riotGames": {
+                "genere": "gaming",
                 "searchSites": {
                     "web": "riotgames.com"
                 },
-                "type": "all",
-                "genere": "gaming"
-            }
-        },
-        "disableSites": {
+                "type": "all"
+            },
             "roblox": {
+                "genere": "gaming",
                 "searchSites": {
-                    "web": "roblox.com",
-                    "android": "com.roblox.client"
+                    "android": "com.roblox.client",
+                    "web": "roblox.com"
                 },
-                "type": "all",
-                "genere": "gaming"
+                "type": "all"
+            },
+            "skillShare": {
+                "genere": "education",
+                "searchSites": {
+                    "android": "com.skillshare.Skillshare",
+                    "web": "skillshare.com"
+                },
+                "type": "mail"
+            },
+            "skype": {
+                "genere": "social",
+                "searchSites": {
+                    "android": "com.skype.raider",
+                    "web": "skype.com"
+                },
+                "type": "mail"
+            },
+            "snapChat": {
+                "genere": "social",
+                "searchSites": {
+                    "android": "com.snapchat.android",
+                    "web": "snapchat.com"
+                },
+                "type": "all"
+            },
+            "splice": {
+                "genere": "music",
+                "searchSites": {
+                    "android": "com.splice.splice",
+                    "web": "splice.com"
+                },
+                "type": "mail"
+            },
+            "spotify": {
+                "genere": "music",
+                "searchSites": {
+                    "android": "com.spotify.music",
+                    "androidLite": "com.spotify.lite",
+                    "web": "spotify.com"
+                },
+                "type": "all"
+            },
+            "starPlus": {
+                "genere": "streaming",
+                "searchSites": {
+                    "android": "com.disney.starplus",
+                    "web": "www.starplus.com"
+                },
+                "type": "mail"
+            },
+            "steam": {
+                "genere": "gaming",
+                "searchSites": {
+                    "web": "steampowered.com",
+                    "webCommunity": "steamcommunity.com"
+                },
+                "type": "all"
+            },
+            "surfShark": {
+                "genere": "VPN",
+                "searchSites": {
+                    "web": "surfshark.com"
+                },
+                "type": "mail"
+            },
+            "tiktok": {
+                "genere": "social",
+                "searchSites": {
+                    "android": "com.zhiliaoapp.musically",
+                    "web": "tiktok.com"
+                },
+                "type": "all"
+            },
+            "tiktokLite": {
+                "genere": "social",
+                "searchSites": {
+                    "android": "com.zhiliaoapp.musically.go",
+                    "web": "tiktok.com"
+                },
+                "type": "all"
+            },
+            "tradingView": {
+                "genere": "trading",
+                "searchSites": {
+                    "android": "com.tradingview.tradingviewapp",
+                    "web": "tradingview.com"
+                },
+                "type": "all"
+            },
+            "tunnelBear": {
+                "genere": "VPN",
+                "searchSites": {
+                    "web": "tunnelbear.com"
+                },
+                "type": "mail"
+            },
+            "twitch": {
+                "genere": "streaming",
+                "searchSites": {
+                    "android": "tv.twitch.android.app",
+                    "web": "twitch.tv"
+                },
+                "type": "all"
+            },
+            "udemy": {
+                "genere": "education",
+                "searchSites": {
+                    "android": "com.udemy.android",
+                    "web": "udemy.com"
+                },
+                "type": "mail"
+            },
+            "zoom": {
+                "genere": "social",
+                "searchSites": {
+                    "android": "us.zoom.videomeetings",
+                    "web": "zoom.us"
+                },
+                "type": "mail"
             }
         }
     }
