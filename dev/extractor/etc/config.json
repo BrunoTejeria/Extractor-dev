@@ -29,6 +29,13 @@
                 },
                 "type": "mail"
             },
+            "auf-tv": {
+                "genere": "streaming",
+                "searchSites": {
+                    "web": "auf.tv"
+                },
+                "type": "all"
+            },
             "avast": {
                 "genere": "antivirus",
                 "searchSites": {
