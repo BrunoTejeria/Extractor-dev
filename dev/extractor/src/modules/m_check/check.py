@@ -41,22 +41,22 @@ class Check(File, Config):
     # Método para procesar líneas del archivo
     def process_lines(self):
         # Obtener las líneas del archivo
-        file_lines = self.lines
-        count = 1
+        file_lines: list = self.lines
+        count: int = 1
 
         # Iterar a través de las URL en la configuración
         for site in self.config[1]['site']:
             # Objeten el tipo que es el resultado para saber en que carpeta hay que guardarlo
-            search_type = self.config[1]['site'][site]['genere']
+            search_type: dict = self.config[1]['site'][site]['genere']
 
             # Crear un archivo para los resultados o resetearlo si ya existe
             try:
                 file = open(f'{result_path}{search_type}/{site}.txt', 'w')
-                file_path = f'{result_path}{search_type}/{site}.txt'
+                file_path: str = f'{result_path}{search_type}/{site}.txt'
             except FileNotFoundError:
                 os.mkdir(f'{result_path}/{search_type}')
                 file = open(f'{result_path}{search_type}/{site}.txt', 'w')
-                file_path = f'{result_path}{search_type}/{site}.txt'
+                file_path: str = f'{result_path}{search_type}/{site}.txt'
             except:
                 os.mkdir(f'{result_path}/others')
                 file = open(f'{result_path}/others/{site}.txt', 'w')
@@ -69,51 +69,46 @@ class Check(File, Config):
             ''')
 
             # Obtener el tipo de búsqueda (mail, user, all)
-            if self.config[1]['site'][site]['type'] == 'mail':
-                userType = 'mail'
-            elif  self.config[1]['site'][site]['type'] == 'user':
-                userType = 'user'
-            else:
-                userType = 'all'
+            userType = self.config[1]['site'][site]['type']
 
             # Inicializar listas para los resultados
-            results = np.array([])
-            result_lines = np.array([])
+            results: numpy.core = np.array([])
+            result_lines: numpy.core = np.array([])
 
             # Crear una barra de progreso con tqdm
             with tqdm(total=len(file_lines * len(self.config[1]['site'][site]["searchSites"])), desc="Procesando", unit="línea", colour='green', unit_scale=True) as progress_bar:
                 # Iterar a través de las URL y búsquedas en la configuración
                 for searchSite in self.config[1]["site"][site]["searchSites"]:
-                    url = self.config[1]['site'][site]["searchSites"][searchSite]
+                    url: dict = self.config[1]['site'][site]["searchSites"][searchSite]
 
                     # Iterar a través de las líneas del archivo de búsqueda
                     for line in file_lines:
-                        result = ''
+                        result: str = ''
 
                         progress_bar.update(1)
 
                         # Comprobar si la URL está en la línea
                         if url in line:
-                            post_result = line.find(':', line.find(':') + 1)
+                            post_result: str = line.find(':', line.find(':') + 1)
                             if url in line[:post_result]:
                                 result = line[post_result + 1:]
-                            result_lines = np.append(result_lines, result)
+                            result_lines: numpy = np.append(result_lines, result)
 
             # Iterar a través de los resultados
-            results_first_part = np.array([])
+            results_first_part: numpy.core = np.array([])
             print('\n')
             with tqdm(total=len(result_lines), desc="Chequeando", unit="línea", colour='blue', unit_scale=True) as progress_bar:
                 if userType == 'mail':
                     for result in result_lines:
                         try:
                             if len(result) <= 64:
-                                result_first_part = result.split(':')[0]
+                                result_first_part: str = result.split(':')[0]
                                 if not result_first_part in results_first_part:
                                     # Comprobar si el resultado contiene una @
                                     if '@' in result_first_part:
                                         # Añadir el resultado a la lista de resultado
-                                        results_first_part = np.append(results_first_part, result_first_part)
-                                        results = np.append(results, result)
+                                        results_first_part: numpy = np.append(results_first_part, result_first_part)
+                                        results: numpy = np.append(results, result)
                         except ValueError as e:
                             print(e)
                         progress_bar.update(1)
@@ -122,10 +117,10 @@ class Check(File, Config):
                         try:
                             if not "UNKNOWN" in result:
                                 if len(result) <= 64:
-                                    result_first_part = result.split(':')[0]
+                                    result_first_part: str = result.split(':')[0]
                                     if not result_first_part in results_first_part:
-                                            results_first_part = np.append(results_first_part, results_first_part)
-                                            results = np.append(results, result)
+                                            results_first_part: numpy = np.append(results_first_part, results_first_part)
+                                            results: numpy = np.append(results, result)
                         except ValueError as e:
                             print(e)
                         progress_bar.update(1)
