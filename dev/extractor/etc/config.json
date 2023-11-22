@@ -5,7 +5,16 @@
         }
     },
     {
-        "disableSites": {},
+        "disableSites": {
+            "microsoftTeams": {
+                "genere": "social",
+                "searchSites": {
+                    "android": "com.microsoft.teams",
+                    "web": "teams.microsoft.com"
+                },
+                "type": "mail"
+            }
+        },
         "site": {
             "adobe": {
                 "genere": "development",
@@ -204,6 +213,13 @@
                 },
                 "type": "mail"
             },
+            "mail-ru": {
+                "genere": "mail",
+                "searchSites": {
+                    "web": "mail.ru"
+                },
+                "type": "mail"
+            },
             "messenger": {
                 "genere": "social",
                 "searchSites": {
@@ -216,14 +232,6 @@
                 "searchSites": {
                     "web1": "microsoft.com",
                     "web2": "live.com"
-                },
-                "type": "mail"
-            },
-            "microsoftTeams": {
-                "genere": "social",
-                "searchSites": {
-                    "android": "com.microsoft.teams",
-                    "web": "teams.microsoft.com"
                 },
                 "type": "mail"
             },
@@ -246,6 +254,13 @@
                 "genere": "trading",
                 "searchSites": {
                     "web": "olymptrade.com"
+                },
+                "type": "mail"
+            },
+            "orangeMail": {
+                "genere": "mail",
+                "searchSites": {
+                    "web": "orange.es"
                 },
                 "type": "mail"
             },
