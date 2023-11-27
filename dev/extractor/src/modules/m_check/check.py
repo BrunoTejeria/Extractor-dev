@@ -107,22 +107,24 @@ class Check(File, Config):
 
 
 
-            results_first_part: list = []
+            
             print('\n')
 
             # Crear una barra de progreso con tqdm
             with tqdm(total=len(result_lines), desc="Chequeando", unit="línea", colour='blue', unit_scale=True) as progress_bar:
+                results_first_part: list = []
                 if userType == 'mail':
                     for result in result_lines:
                         try:
-                            if len(result) <= 64:
-                                result_first_part: str = result.split(':')[0]
-                                if not result_first_part in results_first_part:
-                                    # Comprobar si el resultado contiene una @
-                                    if '@' in result_first_part:
-                                        # Añadir el resultado a la lista de resultado
-                                        results_first_part.append(result_first_part)
-                                        results.append(result)
+                            if not "UNKNOWN" in result:
+                                if len(result) <= 64:
+                                    result_first_part: str = result.split(':')[0]
+                                    if result_first_part not in results_first_part:
+                                        # Comprobar si el resultado contiene una @
+                                        if '@' in result_first_part:
+                                            # Añadir el resultado a la lista de resultado
+                                            results_first_part.append(result_first_part)
+                                            results.append(result)
                         except ValueError as e:
                             print(e)
                         progress_bar.update(1)
@@ -133,7 +135,7 @@ class Check(File, Config):
                                 if len(result) <= 64:
                                     result_first_part: str = result.split(':')[0]
                                     if not result_first_part in results_first_part:
-                                            results_first_part.append(results_first_part)
+                                            results_first_part.append(result_first_part)
                                             results.append(result)
                         except ValueError as e:
                             print(e)
