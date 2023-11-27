@@ -235,6 +235,13 @@
                 },
                 "type": "mail"
             },
+            "miecraft": {
+                "genere": "gaming",
+                "searchSites": {
+                    "web": "minecraft.net"
+                },
+                "type": "all"
+            },
             "netflix": {
                 "genere": "streaming",
                 "searchSites": {
