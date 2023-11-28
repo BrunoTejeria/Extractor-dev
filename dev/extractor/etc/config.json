@@ -61,7 +61,7 @@
                 "type": "mail"
             },
             "binance": {
-                "genere": "trading",
+                "genere": "finance",
                 "searchSites": {
                     "android": "com.binance.dev",
                     "web": "binance.com"
@@ -69,21 +69,28 @@
                 "type": "all"
             },
             "binomo": {
-                "genere": "trading",
+                "genere": "finance",
                 "searchSites": {
                     "web": "binomo.com"
                 },
                 "type": "mail"
             },
+            "brou": {
+                "genere": "finance",
+                "searchSites": {
+                    "web": "brou.com.uy"
+                },
+                "type": "all"
+            },
             "capital.com": {
-                "genere": "trading",
+                "genere": "finance",
                 "searchSites": {
                     "web": "https://capital.com"
                 },
                 "type": "mail"
             },
             "coinBase": {
-                "genere": "trading",
+                "genere": "finance",
                 "searchSites": {
                     "android": "com.coinbase.android",
                     "web": "coinbase.com"
@@ -205,7 +212,7 @@
                 "type": "mail"
             },
             "iqOption": {
-                "genere": "trading",
+                "genere": "finance",
                 "searchSites": {
                     "android": "iqoption.com",
                     "web": "iqoption.com",
@@ -224,6 +231,14 @@
                 "genere": "social",
                 "searchSites": {
                     "android": "com.facebook.orca"
+                },
+                "type": "all"
+            },
+            "mi-dinero": {
+                "genere": "finance",
+                "searchSites": {
+                    "andorid": "com.midinero.mobile.myapp",
+                    "web": "midinero.com.uy"
                 },
                 "type": "all"
             },
@@ -258,7 +273,7 @@
                 "type": "mail"
             },
             "olympTrade": {
-                "genere": "trading",
+                "genere": "finance",
                 "searchSites": {
                     "web": "olymptrade.com"
                 },
@@ -388,7 +403,7 @@
                 "type": "all"
             },
             "tradingView": {
-                "genere": "trading",
+                "genere": "finance",
                 "searchSites": {
                     "android": "com.tradingview.tradingviewapp",
                     "web": "tradingview.com"
