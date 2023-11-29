@@ -3,3 +3,6 @@ build/
 .vscode/
 test/
 
+
+dev/extractor/etc/data/raw_data/*.txt
+dev/extractor/etc/data/*/*.txt
