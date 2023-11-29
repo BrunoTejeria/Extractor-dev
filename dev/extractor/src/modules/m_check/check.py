@@ -80,22 +80,26 @@ class Check(File, Config):
             # Crear una barra de progreso con tqdm
 
             with tqdm(total=len(file_lines * len(self.config[1]['site'][site]["searchSites"])), desc="Procesando", unit="línea", colour='green', unit_scale=True) as progress_bar:
+
                 # Iterar a través de las URL y búsquedas en la configuración
                 for searchSite in self.config[1]["site"][site]["searchSites"]:
                     url: dict = self.config[1]['site'][site]["searchSites"][searchSite]
 
                     # Iterar a través de las líneas del archivo de búsqueda
                     result: str = ''
+
+                    # Iterar entre lineas del archivo
                     for line in file_lines:
 
                         # Actualizar la barra de progreso
                         progress_bar.update(1)
 
+                        # Tomar user:pass
                         post_result: str = line.find(':', line.find(':') + 1)
 
                         # Comprobar si la URL está en la línea
                         if url in line[:post_result]:
-                            result = line[post_result + 1:]
+                            result: str = line[post_result + 1:]
                             result_lines.append(result)
 
 
