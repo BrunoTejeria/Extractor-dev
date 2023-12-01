@@ -23,6 +23,13 @@
                 },
                 "type": "mail"
             },
+            "advcash": {
+                "genere": "finance",
+                "searchSites": {
+                    "web": "advcash.com"
+                },
+                "type": "mail"
+            },
             "amazon": {
                 "genere": "service",
                 "searchSites": {
@@ -257,6 +264,13 @@
                 },
                 "type": "all"
             },
+            "neteller": {
+                "genere": "finance",
+                "searchSites": {
+                    "web": "neteller.com"
+                },
+                "type": "mail"
+            },
             "netflix": {
                 "genere": "streaming",
                 "searchSites": {
@@ -327,6 +341,13 @@
                 "searchSites": {
                     "android": "com.skillshare.Skillshare",
                     "web": "skillshare.com"
+                },
+                "type": "mail"
+            },
+            "skrill": {
+                "genere": "finance",
+                "searchSites": {
+                    "web": "skrill.com"
                 },
                 "type": "mail"
             },
@@ -432,6 +453,13 @@
                     "web": "udemy.com"
                 },
                 "type": "mail"
+            },
+            "wmtransfer": {
+                "genere": "finance",
+                "searchSites": {
+                    "web": "login.wmtransfer.com"
+                },
+                "type": "all"
             },
             "zoom": {
                 "genere": "social",
