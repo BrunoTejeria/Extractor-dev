@@ -112,19 +112,19 @@ class Check(File, Config):
             results_first_part = set()
 
             # Seleccionar la condición común para ambos casos fuera del bucle
-            common_condition = lambda result: "UNKNOWN" not in result and result_first_part not in results_first_part
+            common_condition = lambda result: "UNKNOWN" not in result and result_div[0] not in results_first_part and result_div[1] != " "
             # Crear una barra de progreso con tqdm
             with tqdm(total=len(result_lines), desc="Chequeando", unit="línea", colour='blue', unit_scale=True) as progress_bar:
                 for result in result_lines:
                     try:
-                        result_first_part = result.split(':')[0]
+                        result_div = result.split(':')
 
                         if common_condition(result):
-                            if userType == 'mail' and '@' in result_first_part:
-                                results_first_part.add(result_first_part)
+                            if userType == 'mail' and '@' in result_div[0]:
+                                results_first_part.add(result_div[0])
                                 results.append(result)
                             elif userType != 'mail':
-                                results_first_part.add(result_first_part)
+                                results_first_part.add(result_div[0])
                                 results.append(result)
                     except ValueError as e:
                         print(e)
