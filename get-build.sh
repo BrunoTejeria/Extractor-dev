@@ -22,7 +22,10 @@ read textoPegar
 # Verificar la respuesta del usuario en textoPegar (sensible a mayúsculas)
 if [ "$textoPegar" == "Y" ] || [ "$textoPegar" == "y" ] || [ "$textoPegar" == "S" ] || [ "$textoPegar" == "s" ]; then
     # Copiar archivo de texto (sin la opción -r)
-    cp "$texto" "$textoRuta"
+    cp "./build/text.txt" "$textoRuta"
+    cp "./build/text2.txt" "$textoRuta"
+    cp "./build/text3.txt" "$textoRuta"
+    cp "./build/text4.txt" "$textoRuta"
 fi
 
 # Preguntar si se debe ejecutar la build
