@@ -1,8 +1,4 @@
 
-# Importación de módulos necesarios
-from ..m_file.file import *
-from ..m_config.config import *
-
 
 # Importar bibliotecas necesarias
 try:
@@ -23,29 +19,102 @@ result_path = 'extractor/etc/data/processed_data/'
 # Definir consola
 console = Console()
 
+class Config:
+    class Json:
+        def __init__(self, json_path, mode='r'):
+            self.file_path = json_path
+            self.mode = mode
+
+        def read(self):
+            try:
+                with open(self.file_path, mode=self.mode) as file:
+                    data = json.load(file)
+                    return data
+            except FileNotFoundError:
+                return None
+
+        def edit(self, data):
+            with open(self.file_path, mode='w') as file:
+                json.dump(data, file, indent=4)
+
+        def delete(self, data):
+            pass
+
+    def __init__(self, config_path, mode_='r', data=''):
+        self.Json.__init__(self, config_path)
+        self.read = self.Json.read(self)
+
+class File:
+    def __init__(self,file_search='', file_write=''):
+        self.file_read = file_search
+        self.file_write = file_write
+
+    def read(self):
+        with open(file=self.file_read, mode='r', encoding='utf-8') as file:
+            lines = file.readlines()
+            file.close()
+        self.lines = lines
+
+    def reset(self):
+        with open \
+        (
+            file=self.file_write,
+            mode='w',
+            encoding='utf-8'
+        ) as file:
+            file.close()
+
+    def write(self, content, mode='w'):
+        with open \
+        (
+            file=self.file_write,
+            mode=mode,
+            encoding='utf-8'
+        ) as file:
+            file.write(content)
+            file.close()
+
+    def count(self):
+        total_lines = sum(1 for line in self.lines)
+        self.count = total_lines
+
+    def clear(self, file_clear):
+        try:
+            with open \
+            (
+                file=file_clear,
+                mode='w'
+            ) as f:
+                # The file is reset (cleared)
+                pass
+            return {"message": True}
+        except:
+            return {"message": True}
+
 # Definición de la clase Check, que hereda de las clases File y Config
 # Importar las clases File y Config
 class Check(File, Config):
     def __init__(self):
         # Leer la configuración
-        self.config = Config(config_path).read()
+        self.config = Config(config_path).read
 
         # Llamar al constructor de la clase Config
         Config.__init__(self, config_path)
 
-        # Obtener rutas de archivos desde la configuración
-        self.file_search =  self.config[0]['textFile']['text']
 
-        # Llamar a los constructores de las clases File y Config
-        File.__init__(self, self.file_search)
-        File.read(self)
 
-    # Método para procesar líneas del archivo
-    def process_lines(self):
-        # Obtener las líneas del archivo
-        file_lines: list = self.lines
-        count: int = 1
 
+        # Iterar entre documentos de texto y extraer sis lineas
+        self.file_lines = []
+        for text in self.config[0]["textFile"]:
+            if os.path.exists(text):
+                file = File(text)
+                file.read()
+                for line in file.lines:
+                    self.file_lines.append(line)
+
+
+    def create_dirs(self):
         # Iterar a través de las URL en la configuración
         for site in self.config[1]['site']:
             # Objeten el tipo que es el resultado para saber en que carpeta hay que guardarlo
@@ -53,16 +122,31 @@ class Check(File, Config):
 
             # Crear un archivo para los resultados o resetearlo si ya existe
             try:
-                file = open(f'{result_path}{search_type}/{site}.txt', 'w')
-                file_path: str = f'{result_path}{search_type}/{site}.txt'
-            except FileNotFoundError:
-                os.mkdir(f'{result_path}/{search_type}')
-                file = open(f'{result_path}{search_type}/{site}.txt', 'w')
-                file_path: str = f'{result_path}{search_type}/{site}.txt'
+                try:
+                    file = open(f'{result_path}{search_type}/{site}.txt', 'w')
+                except FileNotFoundError:
+                    os.mkdir(f'{result_path}/{search_type}')
+                    file = open(f'{result_path}{search_type}/{site}.txt', 'w')
+                except:
+                    os.mkdir(f'{result_path}/others')
+                    file = open(f'{result_path}/others/{site}.txt', 'w')
+                return {"message": True}
+
             except:
-                os.mkdir(f'{result_path}/others')
-                file = open(f'{result_path}/others/{site}.txt', 'w')
-                file_path = f'{result_path}/others/{site}.txt'
+                return {"message": True}
+
+    # Método para procesar líneas del archivo
+    def process_lines(self):
+        # Obtener las líneas del archivo
+        file_lines = self.file_lines
+
+        count: int = 1
+        for site in self.config[1]['site']:
+
+            # Configurar archivo de salida
+            search_type: dict = self.config[1]['site'][site]['genere']
+            self.create_dirs()
+            file_path = f'{result_path}/{search_type}/{site}.txt'
 
             # imprimir en que se esta buscando
             console.print \
@@ -79,7 +163,7 @@ class Check(File, Config):
 
             # Crear una barra de progreso con tqdm
 
-            with tqdm(total=len(file_lines * len(self.config[1]['site'][site]["searchSites"])), desc="Procesando", unit="línea", colour='green', unit_scale=True) as progress_bar:
+            with tqdm(total=sum(1 for i in file_lines), desc="Procesando", unit="línea", colour='green', unit_scale=True) as progress_bar:
 
                 # Iterar a través de las URL y búsquedas en la configuración
                 for searchSite in self.config[1]["site"][site]["searchSites"]:
@@ -98,7 +182,7 @@ class Check(File, Config):
                         post_result = line.find(':', line.find(':') + 1)
 
                         # Comprobar si la URL está en la línea
-                        if url in line[:post_result] and post_result is not ":":
+                        if url in line[:post_result] and post_result != ":":
                             result = line[post_result + 1:]
                             result_lines.append(result)
 
