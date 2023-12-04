@@ -34,7 +34,7 @@ class Check(File, Config):
         Config.__init__(self, config_path)
 
         # Obtener rutas de archivos desde la configuración
-        self.file_search =  self.config[0]['textFile']['textSearch']
+        self.file_search =  self.config[0]['textFile']['text']
 
         # Llamar a los constructores de las clases File y Config
         File.__init__(self, self.file_search)
@@ -83,7 +83,7 @@ class Check(File, Config):
 
                 # Iterar a través de las URL y búsquedas en la configuración
                 for searchSite in self.config[1]["site"][site]["searchSites"]:
-                    url: dict = self.config[1]['site'][site]["searchSites"][searchSite]
+                    url = self.config[1]['site'][site]["searchSites"][searchSite]
 
                     # Iterar a través de las líneas del archivo de búsqueda
                     result: str = ''
@@ -95,12 +95,13 @@ class Check(File, Config):
                         progress_bar.update(1)
 
                         # Tomar user:pass
-                        post_result: str = line.find(':', line.find(':') + 1)
+                        post_result = line.find(':', line.find(':') + 1)
 
                         # Comprobar si la URL está en la línea
-                        if url in line[:post_result]:
-                            result: str = line[post_result + 1:]
+                        if url in line[:post_result] and post_result is not ":":
+                            result = line[post_result + 1:]
                             result_lines.append(result)
+
 
 
 
@@ -118,15 +119,16 @@ class Check(File, Config):
                 for result in result_lines:
                     try:
                         result_div = result.split(':')
+                        if result != "\n":
+                            if common_condition(result):
+                                if userType == 'mail' and '@' in result_div[0]:
+                                    results_first_part.add(result_div[0])
+                                    results.append(result)
 
-                        if common_condition(result):
-                            if userType == 'mail' and '@' in result_div[0]:
-                                results_first_part.add(result_div[0])
-                                results.append(result)
-                            elif userType != 'mail':
-                                results_first_part.add(result_div[0])
-                                results.append(result)
-                    except ValueError as e:
+                                elif userType != 'mail':
+                                    results_first_part.add(result_div[0])
+                                    results.append(result)
+                    except Exception as e:
                         print(e)
 
                     progress_bar.update(1)
