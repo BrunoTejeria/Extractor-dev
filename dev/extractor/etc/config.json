@@ -1,11 +1,9 @@
 [
     {
-        "textFile": {
-            "text": "extractor/etc/data/raw_data/text.txt",
-            "text2": "extractor/etc/data/raw_data/text2.txt",
-            "text3": "extractor/etc/data/raw_data/text3.txt",
-            "text4": "extractor/etc/data/raw_data/text4.txt"
-        }
+        "textFile": [
+            "extractor/etc/data/raw_data/text.txt",
+            "extractor/etc/data/raw_data/text2.txt"
+        ]
     },
     {
         "disableSites": {
@@ -360,10 +358,10 @@
                 },
                 "type": "all"
             },
-            "roblox": {
+            "robloxIslands": {
                 "genere": "gaming",
                 "searchSites": {
-                    "web": "https://www.roblox.com/games/4872321990/"
+                    "web": "roblox.com/games/4872321990/"
                 },
                 "type": "all"
             },
