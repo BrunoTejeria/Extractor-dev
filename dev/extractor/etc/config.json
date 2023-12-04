@@ -1,7 +1,10 @@
 [
     {
         "textFile": {
-            "textSearch": "extractor/etc/data/raw_data/text.txt"
+            "text": "extractor/etc/data/raw_data/text.txt",
+            "text2": "extractor/etc/data/raw_data/text2.txt",
+            "text3": "extractor/etc/data/raw_data/text3.txt",
+            "text4": "extractor/etc/data/raw_data/text4.txt"
         }
     },
     {
@@ -172,6 +175,13 @@
                 },
                 "type": "all"
             },
+            "fortnite": {
+                "genere": "gaming",
+                "searchSites": {
+                    "web": "fortnite.com"
+                },
+                "type": "mail"
+            },
             "github": {
                 "genere": "development",
                 "searchSites": {
@@ -293,6 +303,13 @@
                 },
                 "type": "mail"
             },
+            "onmail": {
+                "genere": "mail",
+                "searchSites": {
+                    "web": "onmail.com"
+                },
+                "type": "mail"
+            },
             "orangeMail": {
                 "genere": "mail",
                 "searchSites": {
@@ -306,6 +323,13 @@
                     "web": "platzi.com"
                 },
                 "type": "mail"
+            },
+            "prex": {
+                "genere": "finance",
+                "searchSites": {
+                    "web": "prexcard.com"
+                },
+                "type": "all"
             },
             "protonVPN": {
                 "genere": "VPN",
@@ -333,6 +357,13 @@
                 "searchSites": {
                     "android": "com.roblox.client",
                     "web": "roblox.com"
+                },
+                "type": "all"
+            },
+            "roblox": {
+                "genere": "gaming",
+                "searchSites": {
+                    "web": "https://www.roblox.com/games/4872321990/"
                 },
                 "type": "all"
             },
