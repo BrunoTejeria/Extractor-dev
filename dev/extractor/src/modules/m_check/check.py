@@ -163,7 +163,7 @@ class Check(File, Config):
 
             # Crear una barra de progreso con tqdm
 
-            with tqdm(total=sum(1 for i in file_lines), desc="Procesando", unit="línea", colour='green', unit_scale=True) as progress_bar:
+            with tqdm(total=sum(1 for i in file_lines) * len(self.config[1]['site'][site]['searchSites']), desc="Procesando", unit="línea", colour='green', unit_scale=True) as progress_bar:
 
                 # Iterar a través de las URL y búsquedas en la configuración
                 for searchSite in self.config[1]["site"][site]["searchSites"]:
