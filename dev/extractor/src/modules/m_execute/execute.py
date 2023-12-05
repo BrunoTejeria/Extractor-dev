@@ -121,14 +121,20 @@ def config():
 
     # Función para configurar urls
     def text_read():
-        pass
+        console_rich.clear()
+        console_rich.print("Pon en documento de texto en la carpeta 'extractor/etc/data/raw_data' y luego pon el nombre con su .txt")
+        text_doc = Prompt.ask("Nombre de documento")
+        # Dumpear json
 
     # Función para configurar urls
     def text_write():
         pass
 
-    site()
-
+    selected_option = Prompt.ask("Opcion")
+    if selected_option == "1":
+        site()
+    elif selected_option == "2":
+        text_read()
 
 # Función para ejecutar el programa
 def main():
