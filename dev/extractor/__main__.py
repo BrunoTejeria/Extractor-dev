@@ -1,7 +1,6 @@
 
 
 from src.modules.m_execute.execute import main
-from src.modules.m_config.config import Config
 
 
 
