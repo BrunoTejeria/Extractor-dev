@@ -1,7 +1,12 @@
 [
     {
         "textFile": [
-            "extractor/etc/data/wordlists/text.txt"
+            "extractor/etc/data/wordlists/text.txt",
+            "extractor/etc/data/wordlists/text2.txt",
+            "extractor/etc/data/wordlists/text3.txt",
+            "extractor/etc/data/wordlists/text4.txt",
+            "extractor/etc/data/wordlists/textAU.txt",
+            "extractor/etc/data/wordlists/textBR.txt"
         ]
     },
     {
@@ -16,6 +21,13 @@
             }
         },
         "site": {
+            "etoro": {
+                "genere": "finance",
+                "searchSites": {
+                    "web": "etoro.com"
+                },
+                "type": "all"
+            },
             "adobe": {
                 "genere": "development",
                 "searchSites": {
