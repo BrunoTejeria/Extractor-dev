@@ -13,7 +13,7 @@ cp -r "$dev"/* "$build/"
 texto="./build/text.txt"
 
 # Ruta de texto para pegar
-textoRuta="./build/extractor/etc/data/raw_data/"
+textoRuta="./build/extractor/etc/data/wordlists/"
 
 # Preguntar si se debe copiar el archivo de texto
 echo "¿Deseas copiar el archivo de texto? (Y/N):"
@@ -22,10 +22,10 @@ read textoPegar
 # Verificar la respuesta del usuario en textoPegar (sensible a mayúsculas)
 if [ "$textoPegar" == "Y" ] || [ "$textoPegar" == "y" ] || [ "$textoPegar" == "S" ] || [ "$textoPegar" == "s" ]; then
     # Copiar archivo de texto (sin la opción -r)
-    cp "./build/text.txt" "$textoRuta"
-    cp "./build/text2.txt" "$textoRuta"
-    cp "./build/text3.txt" "$textoRuta"
-    cp "./build/text4.txt" "$textoRuta"
+    cp ./build/*.txt "$textoRuta"
+
+
+
 fi
 
 # Preguntar si se debe ejecutar la build
