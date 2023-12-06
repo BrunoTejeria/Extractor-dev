@@ -14,7 +14,7 @@ except ImportError:
 
 # Ruta del archivo de configuración
 config_path = 'extractor/etc/config.json'
-result_path = 'extractor/etc/data/processed_data/'
+result_path = 'extractor/etc/data/processed_data'
 
 # Definir consola
 console = Console()
@@ -115,38 +115,44 @@ class Check(File, Config):
 
 
     def create_dirs(self):
-        # Iterar a través de las URL en la configuración
-        for site in self.config[1]['site']:
-            # Objeten el tipo que es el resultado para saber en que carpeta hay que guardarlo
-            search_type: dict = self.config[1]['site'][site]['genere']
+        try:
+            # Iterar a través de las URL en la configuración
+            for site in self.config[1]['site']:
+                # Objeten el tipo que es el resultado para saber en que carpeta hay que guardarlo
+                search_type: dict = self.config[1]['site'][site]['genere']
 
-            # Crear un archivo para los resultados o resetearlo si ya existe
-            try:
+                # Crear un archivo para los resultados o resetearlo si ya existe
                 try:
-                    file = open(f'{result_path}{search_type}/{site}.txt', 'w')
+                    file = open(f'{result_path}/{search_type}/{site}.txt', 'w')
                 except FileNotFoundError:
-                    os.mkdir(f'{result_path}/{search_type}')
-                    file = open(f'{result_path}{search_type}/{site}.txt', 'w')
+                    if os.path.exists(f"{result_path}/{search_type}"):
+                        next
+                    else:
+                        os.mkdir(f'{result_path}/{search_type}')
+                        file = open(f'{result_path}/{search_type}/{site}.txt', 'w')
                 except:
                     os.mkdir(f'{result_path}/others')
                     file = open(f'{result_path}/others/{site}.txt', 'w')
-                return {"message": True}
 
-            except:
-                return {"message": True}
+
+        except:
+            return {"message": True}
+
 
     # Método para procesar líneas del archivo
     def process_lines(self):
         # Obtener las líneas del archivo
         file_lines = self.file_lines
-
+        print(self.create_dirs())
         count: int = 1
         for site in self.config[1]['site']:
+            exception = False
 
             # Configurar archivo de salida
             search_type: dict = self.config[1]['site'][site]['genere']
-            self.create_dirs()
+            
             file_path = f'{result_path}/{search_type}/{site}.txt'
+            print(file_path)
 
             # imprimir en que se esta buscando
             console.print \
@@ -199,26 +205,32 @@ class Check(File, Config):
             # Seleccionar la condición común para ambos casos fuera del bucle
             common_condition = lambda result: "UNKNOWN" not in result and result_div[0] not in results_first_part and result_div[1] != " "
             # Crear una barra de progreso con tqdm
-            with tqdm(total=len(result_lines), desc="Chequeando", unit="línea", colour='blue', unit_scale=True) as progress_bar:
-                for result in result_lines:
-                    try:
-                        result_div = result.split(':')
-                        if result != "\n":
-                            if common_condition(result):
-                                if userType == 'mail' and '@' in result_div[0]:
-                                    results_first_part.add(result_div[0])
-                                    results.append(result)
+            #with tqdm(total=len(result_lines), desc="Chequeando", unit="línea", colour='blue', unit_scale=True) as progress_bar:
+            for result in result_lines:
+                try:
+                    result_div = result.split(':')
+                    if result != "\n":
+                        if common_condition(result):
+                            if userType == 'mail' and '@' in result_div[0]:
+                                results_first_part.add(result_div[0])
+                                results.append(result)
 
-                                elif userType != 'mail':
-                                    results_first_part.add(result_div[0])
-                                    results.append(result)
-                    except Exception as e:
+                            elif userType != 'mail':
+                                results_first_part.add(result_div[0])
+                                results.append(result)
+                except Exception as e:
+                    
+                    if exception == True:
+                        pass
+                    else:
                         print(e)
+                        exception = True
+            exception = False
 
-                    progress_bar.update(1)
+                    #progress_bar.update(1)
 
             # Escribir los resultados en un archivo
-            with open(file=file_path, mode='a',) as file_:
+            with open(file=file_path, mode='a') as file_:
                     for result in results:
                         if result != '\n':
                             try:
