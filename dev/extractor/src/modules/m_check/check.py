@@ -205,7 +205,6 @@ class Check(File, Config):
             # Seleccionar la condición común para ambos casos fuera del bucle
             common_condition = lambda result: "UNKNOWN" not in result and result_div[0] not in results_first_part and result_div[1] != " "
             # Crear una barra de progreso con tqdm
-            #with tqdm(total=len(result_lines), desc="Chequeando", unit="línea", colour='blue', unit_scale=True) as progress_bar:
             for result in result_lines:
                 try:
                     result_div = result.split(':')
@@ -219,15 +218,12 @@ class Check(File, Config):
                                 results_first_part.add(result_div[0])
                                 results.append(result)
                 except Exception as e:
-                    
                     if exception == True:
                         pass
                     else:
                         print(e)
                         exception = True
             exception = False
-
-                    #progress_bar.update(1)
 
             # Escribir los resultados en un archivo
             with open(file=file_path, mode='a') as file_:
