@@ -24,7 +24,7 @@
             "etoro": {
                 "genere": "finance",
                 "searchSites": {
-                    "web": "etoro.com"
+                    "web": "www.etoro.com"
                 },
                 "type": "all"
             },
