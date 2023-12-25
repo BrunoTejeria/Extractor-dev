@@ -8,9 +8,6 @@ class Check():
       # Llamar al constructor de la clase Config
       Config.__init__(self, config_path)
 
-
-
-
       # Iterar entre documentos de texto y extraer sis lineas
       self.file_lines = []
       for text in self.config[0]["textFile"]:
