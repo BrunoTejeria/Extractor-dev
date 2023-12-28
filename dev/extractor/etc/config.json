@@ -21,6 +21,13 @@
             }
         },
         "site": {
+            "gmx": {
+                "genere": "mail",
+                "searchSites": {
+                    "web": "gmx.es/"
+                },
+                "type": "all"
+            },
             "etoro": {
                 "genere": "finance",
                 "searchSites": {
