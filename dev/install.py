@@ -8,6 +8,5 @@ resultado = subprocess.run('bash extractor/etc/install.sh', shell=True, stdout=s
 print("Salida estándar:")
 print(resultado.stdout)
 
-
 print("Error estándar:")
 print(resultado.stderr)
