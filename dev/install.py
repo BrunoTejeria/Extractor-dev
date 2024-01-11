@@ -1,6 +1,7 @@
 
 import subprocess
 
+
 # Ejecuta el comando Bash desde Python
 resultado = subprocess.run('bash extractor/etc/install.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
