@@ -51,7 +51,22 @@ class File:
 
     def read(self):
         with open(file=self.file_read, mode='r', encoding='utf-8') as file:
-            lines = file.readlines()
+            lines = []
+
+        try:
+            with open(file=self.file_read, mode='rb') as file:
+                for line_number, raw_line in enumerate(file, 1):
+                    try:
+                        # Decodificar la línea como UTF-8
+                        line = raw_line.decode('utf-8').strip()
+                        lines.append(line)
+                    except UnicodeDecodeError as e:
+                        print(f"Error decoding line {line_number}: {e}")
+                        # Omitir la línea que genera el error y continuar con la siguiente
+                        continue
+        except FileNotFoundError:
+            print(f"El archivo {self.file_read} no fue encontrado.")
+            return {"message": f"Archivo no encontrado: {self.file_read}"}
             file.close()
         self.lines = lines
 
@@ -228,11 +243,11 @@ class Check(File, Config):
             # Escribir los resultados en un archivo
             with open(file=file_path, mode='a') as file_:
                     for result in results:
-                        if result != '\n':
-                            try:
-                                file_.write(result)
-                            except:
-                                continue
+
+                        try:
+                            file_.write(f"{result}\n")
+                        except:
+                            continue
             console.print("[bold green]\nResultados totales: [/bold green]" + str(len(results)))
             print('\n \n')
 
