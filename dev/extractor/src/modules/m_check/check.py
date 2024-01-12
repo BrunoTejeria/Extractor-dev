@@ -49,6 +49,7 @@ class File:
         self.file_read = file_search
         self.file_write = file_write
 
+
     def read(self):
         with open(file=self.file_read, mode='r', encoding='utf-8') as file:
             lines = []
