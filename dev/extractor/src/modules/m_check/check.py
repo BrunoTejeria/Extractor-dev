@@ -67,7 +67,6 @@ class File:
         except FileNotFoundError:
             print(f"El archivo {self.file_read} no fue encontrado.")
             return {"message": f"Archivo no encontrado: {self.file_read}"}
-            file.close()
         self.lines = lines
 
     def reset(self):
