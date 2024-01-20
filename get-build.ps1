@@ -1,6 +1,7 @@
 # Ruta de la carpeta que se está trabajando
 $dev = ".\dev\"
 
+
 # Ruta de la build
 $build = ".\build\"
 
