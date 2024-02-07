@@ -228,6 +228,18 @@ class Check(File, Config):
                             if userType == 'mail' and '@' in result_div[0]:
                                 results_first_part.add(result_div[0])
                                 results.append(result)
+                            elif userType == "int":
+                                try:
+                                    int(result_div[0])
+                                except:
+                                    continue
+                                results.append(result)
+                            elif userType == "float":
+                                try:
+                                    float(result_div[0])
+                                except:
+                                    continue
+                                results.append(result)
 
                             elif userType == "fenixzone":
                                 if "_" in result:
