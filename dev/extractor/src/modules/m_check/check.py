@@ -165,7 +165,7 @@ class Check(File, Config):
 
             # Configurar archivo de salida
             search_type: dict = self.config[1]['site'][site]['genere']
-            
+
             file_path = f'{result_path}/{search_type}/{site}.txt'
             print(file_path)
 
@@ -229,9 +229,14 @@ class Check(File, Config):
                                 results_first_part.add(result_div[0])
                                 results.append(result)
 
+                            elif userType == "fenixzone":
+                                if "_" in result:
+                                    results.append(result)
+
                             elif userType != 'mail':
                                 results_first_part.add(result_div[0])
                                 results.append(result)
+
                 except Exception as e:
                     if exception == True:
                         pass

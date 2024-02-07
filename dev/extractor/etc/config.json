@@ -21,6 +21,20 @@
             }
         },
         "site": {
+            "universoCraft": {
+                "genere": "gaming",
+                "searchSites": {
+                    "web": "universocraft.com/login"
+                },
+                "type": "all"
+            },
+            "fenixZone": {
+                "genere": "gaming",
+                "searchSites": {
+                    "web": "rol.fenixzone.com"
+                },
+                "type": "fenixzone"
+            },
             "gmx": {
                 "genere": "mail",
                 "searchSites": {
