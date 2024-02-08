@@ -6,7 +6,10 @@
             "extractor/etc/data/wordlists/text (3).txt",
             "extractor/etc/data/wordlists/text (4).txt",
             "extractor/etc/data/wordlists/text (5).txt",
-            "extractor/etc/data/wordlists/text (6).txt"
+            "extractor/etc/data/wordlists/text (6).txt",
+            "extractor/etc/data/wordlists/text (7).txt",
+            "extractor/etc/data/wordlists/text (8).txt",
+            "extractor/etc/data/wordlists/text (9).txt"
         ]
     },
     {
@@ -28,10 +31,38 @@
                 },
                 "type": "all"
             },
-            "fenixZone": {
+            "fenixZone1": {
                 "genere": "gaming",
                 "searchSites": {
                     "web": "rol.fenixzone.com"
+                },
+                "type": "fenixzone"
+            },
+            "fenixZone2": {
+                "genere": "gaming",
+                "searchSites": {
+                    "web": "rol2.fenixzone.com"
+                },
+                "type": "fenixzone"
+            },
+            "fenixZone3": {
+                "genere": "gaming",
+                "searchSites": {
+                    "web": "rol3.fenixzone.com"
+                },
+                "type": "fenixzone"
+            },
+            "fenixZone4": {
+                "genere": "gaming",
+                "searchSites": {
+                    "web": "rol4.fenixzone.com"
+                },
+                "type": "fenixzone"
+            },
+            "fenixZone5": {
+                "genere": "gaming",
+                "searchSites": {
+                    "web": "rol5.fenixzone.com"
                 },
                 "type": "fenixzone"
             },
