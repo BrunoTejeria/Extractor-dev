@@ -200,9 +200,11 @@ class Check(File, Config):
                         progress_bar.update(1)
 
                         # Tomar user:pass
-                        post_result = line.find(':', line.find(':') + 1)
-
-                        # Comprobar si la URL está en la línea
+                        try:
+                            post_result = line.find(':', line.find(':') + 1)
+                        except:
+                            post_result = line.find(' ', line.find(' ') + 1)
+                            # Comprobar si la URL está en la línea
                         if url in line[:post_result] and post_result != ":":
                             result = line[post_result + 1:]
                             result_lines.append(result)
