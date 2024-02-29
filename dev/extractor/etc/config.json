@@ -1,6 +1,7 @@
 [
     {
         "textFile": [
+            "extractor/etc/data/wordlists/text.txt",
             "extractor/etc/data/wordlists/text (1).txt",
             "extractor/etc/data/wordlists/text (2).txt",
             "extractor/etc/data/wordlists/text (3).txt",
@@ -9,7 +10,18 @@
             "extractor/etc/data/wordlists/text (6).txt",
             "extractor/etc/data/wordlists/text (7).txt",
             "extractor/etc/data/wordlists/text (8).txt",
-            "extractor/etc/data/wordlists/text (9).txt"
+            "extractor/etc/data/wordlists/text (9).txt",
+            "extractor/etc/data/wordlists/text (10).txt",
+            "extractor/etc/data/wordlists/text (11).txt",
+            "extractor/etc/data/wordlists/text (12).txt",
+            "extractor/etc/data/wordlists/text (13).txt",
+            "extractor/etc/data/wordlists/text (14).txt",
+            "extractor/etc/data/wordlists/text (15).txt",
+            "extractor/etc/data/wordlists/text (16).txt",
+            "extractor/etc/data/wordlists/text (17).txt",
+            "extractor/etc/data/wordlists/text (18).txt",
+            "extractor/etc/data/wordlists/text (19).txt",
+            "extractor/etc/data/wordlists/text (20).txt"
         ]
     },
     {
@@ -24,6 +36,27 @@
             }
         },
         "site": {
+            "cm-pack": {
+                "genere": "gaming",
+                "searchSites": {
+                    "web": "cm-pack.pl"
+                },
+                "type": "all"
+            },
+            "minebox": {
+                "genere": "gaming",
+                "searchSites": {
+                    "web": "minebox.es"
+                },
+                "type": "all"
+            },
+            "ceibal": {
+                "genere": "education",
+                "searchSites": {
+                    "web": "ingreso.ceibal.edu.uy"
+                },
+                "type": "all"
+            },
             "universoCraft": {
                 "genere": "gaming",
                 "searchSites": {
