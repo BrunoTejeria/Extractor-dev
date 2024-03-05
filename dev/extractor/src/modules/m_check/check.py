@@ -19,6 +19,8 @@ result_path = 'extractor/etc/data/processed_data'
 # Definir consola
 console = Console()
 
+text_files = os.scandir("./extractor/etc/data/wordlists/")
+
 class Config:
     class Json:
         def __init__(self, json_path, mode='r'):
@@ -121,7 +123,7 @@ class Check(File, Config):
 
         # Iterar entre documentos de texto y extraer sis lineas
         self.file_lines = []
-        for text in self.config[0]["textFile"]:
+        for text in text_files:
             if os.path.exists(text):
                 file = File(text)
                 file.read()
