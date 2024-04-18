@@ -1,5 +1,2 @@
-# Importar tqdm para barra de carga
 tqdm>=4.66
-
-# Importar rich para estilos
 rich>=13.5
