@@ -5,13 +5,6 @@ except:
     quit()
 
 try:
-    from ...packages.pack_reinstall.pack import reinstall
-except:
-    print("[!] Error al importar reinstall")
-    reinstall()
-    quit()
-
-try:
     import json
 except:
     print("[!] Error al importar json")
@@ -104,7 +97,7 @@ def config():
             selected_option = table_config_url_choices[int(selected_option) - 1]
             if selected_option == 0:
                 break
-            Console_rich.print(f"Sitio seleccionado: [green]{selected_option}[/green]")
+            console_rich.print(f"Sitio seleccionado: [green]{selected_option}[/green]")
 
             # Bucle para configurar el sitio seleccionado
             while True:

@@ -6,9 +6,6 @@ try:
     from tqdm import tqdm
     import json
     import os
-    import numpy as np
-    import time
-    import logging
 except ImportError:
     pass
 
@@ -211,13 +208,7 @@ class Check(File, Config):
                             result = line[post_result + 1:]
                             result_lines.append(result)
 
-
-
-
-
             print('\n')
-
-
 
             results_first_part = set()
 

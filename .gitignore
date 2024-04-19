@@ -1,5 +1,7 @@
 __pycache__/
-build/
 .vscode/
 test/
+processed_data/*
+!processed_data/.result
+
 
